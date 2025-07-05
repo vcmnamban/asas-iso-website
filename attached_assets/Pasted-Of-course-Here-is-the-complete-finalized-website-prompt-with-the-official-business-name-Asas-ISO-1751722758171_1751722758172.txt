@@ -1,0 +1,103 @@
+Of course. Here is the complete, finalized website prompt with the official business name, "Asas ISO".
+
+Create a responsive, bilingual (English and Arabic) website for the new ISO training company, "Asas ISO". The company is officially registered in Kuwait and targets clients in Kuwait, Saudi Arabia, and Oman. The design must be professional, modern, and trustworthy, reflecting the brand's meaning of "Foundation." It must be optimized for both desktop and mobile devices.
+
+Website Structure and Content:
+
+1. Homepage:
+
+Hero Section: A compelling headline like "Asas ISO: The Foundation for Your Certification Success." followed by a subtitle: "Proudly based in Kuwait, serving businesses across the GCC." Include a high-quality background image relevant to key regional industries (e.g., energy, construction, technology). Add three clear call-to-action (CTA) buttons: "View Our Courses," "Request a Quote," and "Schedule a Consultation."
+
+Our Core ISO Training Services: A visually appealing section with icons and brief descriptions for each of the following ISO standards. Note: Focus on foundational and internal auditor training only.
+
+ISO 9001:2015 (Quality Management)
+
+ISO 14001:2015 (Environmental Management)
+
+ISO 45001:2018 (Occupational Health & Safety)
+
+ISO 27001:2022 (Information Security)
+
+ISO 22301 (Business Continuity)
+
+ISO 20000-1 (IT Service Management)
+
+ISO 22000 (Food Safety Management)
+
+Why Choose Asas ISO?: A section highlighting key benefits such as "Certified & Experienced Trainers," "Training Customized for Regional Industries," "Flexible Delivery (In-house, Online, Public)," and "Practical, Results-Oriented Approach."
+
+Client Testimonials: A section to feature quotes from satisfied clients. Use placeholders for now.
+
+Footer: Include the official Kuwaiti registration address and contact information for Asas ISO (Kuwait phone number, email). Also include social media links (LinkedIn is essential) and navigation links.
+
+2. About Us Page:
+
+Detail the mission of Asas ISO to build the foundation for quality and safety standards in the region.
+
+Mention the company's official registration and base in Kuwait as a commitment to local and regional development.
+
+Introduce the team of trainers with placeholder profiles highlighting their certifications and experience in markets like Kuwait, Saudi Arabia, and Oman.
+
+3. ISO Training Courses (Main Page):
+
+Provide an overview of all the training courses offered.
+
+Create separate, detailed pages for each of the seven ISO standards. Each individual course page should feature training levels such as:
+
+Awareness Training: A one-day session for all employees.
+
+Implementation Workshop: A practical guide for managers and teams responsible for implementation.
+
+Internal Auditor Training: A comprehensive course to equip staff to conduct internal audits.
+
+(DO NOT include "Lead Auditor" training).
+
+Each page should have a CTA to "Register Now" or "Inquire About This Course."
+
+4. Training Services Page:
+
+Describe the different training delivery formats:
+
+In-House Training: At client premises in Kuwait, Saudi Arabia, Oman, and other GCC countries.
+
+Public Courses: With a schedule and venue details for Kuwait City (and placeholder schedules for Riyadh and Muscat).
+
+Online Live Training: Virtual instructor-led sessions accessible from anywhere.
+
+5. Blog/Insights Page:
+
+Create a simple blog layout. Include placeholder titles relevant to the target markets, like "Building a Strong Foundation with ISO 9001: A Guide for Kuwaiti Businesses" or "The Rise of ISO 27001 in Saudi Arabia's Tech Sector."
+
+6. Contact Us Page:
+
+List the official company name "Asas ISO" and its Kuwait registration address clearly.
+
+Provide a Kuwaiti phone number and email address.
+
+Embed a Google Map showing the office location in Kuwait.
+
+Include a contact form with fields for Full Name, Company Name, Country (with dropdown for Kuwait, Saudi Arabia, Oman), Email, Phone Number, ISO Standard of Interest, and a Message box.
+
+7. Schedule a Consultation Page:
+
+A dedicated page with the headline: "Book a Free Consultation with an Asas ISO Expert."
+
+Include brief text explaining what the visitor will get from the consultation (e.g., needs assessment, customized training plan, pricing).
+
+Embed a scheduling tool like Calendly for direct booking.
+
+Technical & Design Requirements:
+
+Technology: Use HTML, CSS, and JavaScript.
+
+Bilingual Support: Implement a prominent language switcher (English/Arabic).
+
+SEO: Ensure pages have appropriate titles, meta descriptions, and use keywords like "Asas ISO," "ISO training Kuwait," "ISO internal auditor Saudi Arabia," "ISO 45001 Oman."
+
+Branding: Use a professional and trustworthy color scheme (e.g., deep blues, greys, and white). Create a simple, elegant logo for "Asas ISO" that perhaps suggests a foundation, building block, or a strong base structure.
+
+AI-Powered Chatbot:
+
+Integrate an AI customer support chatbot in the bottom-right corner of every page.
+
+Functionality: The chatbot should answer FAQs about course types (Awareness, Implementation, Internal Auditor), schedules, and delivery methods. It must guide users to relevant pages. If it cannot answer a query, it should ask for the user's name, email, and question, and promise that a team member from Asas ISO will follow up.
