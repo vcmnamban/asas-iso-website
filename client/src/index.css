@@ -13,7 +13,7 @@
   --card-foreground: hsl(224, 71%, 4%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(221, 83%, 53%);
+  --primary: hsl(214, 100%, 34%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(210, 40%, 98%);
   --secondary-foreground: hsl(222, 84%, 4%);
@@ -21,12 +21,12 @@
   --accent-foreground: hsl(222, 84%, 4%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+  --ring: hsl(214, 100%, 34%);
   --radius: 0.5rem;
 
-  /* Custom colors for Asas ISO */
-  --asas-primary: hsl(221, 83%, 53%);
-  --asas-primary-dark: hsl(221, 83%, 43%);
+  /* Custom colors for Asas ISO Brand */
+  --asas-primary: hsl(214, 100%, 34%);
+  --asas-primary-light: hsl(201, 87%, 53%);
   --asas-secondary: hsl(215, 28%, 17%);
   --asas-secondary-light: hsl(215, 13%, 65%);
   --asas-accent: hsl(213, 100%, 96%);
@@ -46,7 +46,7 @@
   --card-foreground: hsl(210, 40%, 98%);
   --border: hsl(215, 27%, 32%);
   --input: hsl(215, 27%, 32%);
-  --primary: hsl(221, 83%, 53%);
+  --primary: hsl(214, 100%, 34%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(215, 27%, 32%);
   --secondary-foreground: hsl(210, 40%, 98%);
@@ -54,7 +54,7 @@
   --accent-foreground: hsl(210, 40%, 98%);
   --destructive: hsl(0, 62%, 30%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+  --ring: hsl(214, 100%, 34%);
 }
 
 @layer base {
@@ -73,7 +73,7 @@
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(221, 83%, 43%) 50%, hsl(213, 100%, 96%) 100%);
+    background: linear-gradient(135deg, hsl(214, 100%, 34%) 0%, hsl(201, 87%, 53%) 50%, hsl(213, 100%, 96%) 100%);
   }
   
   .card-hover {
@@ -119,7 +119,7 @@
   }
   
   .text-gradient {
-    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.7));
+    background: linear-gradient(to right, hsl(214, 100%, 34%), hsl(201, 87%, 53%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -131,6 +131,27 @@
   
   .rtl-flip {
     @apply ltr:flex-row rtl:flex-row-reverse;
+  }
+  
+  /* Asas ISO Brand Classes */
+  .asas-primary-bg {
+    background-color: hsl(214, 100%, 34%);
+  }
+  
+  .asas-primary-light-bg {
+    background-color: hsl(201, 87%, 53%);
+  }
+  
+  .asas-primary-text {
+    color: hsl(214, 100%, 34%);
+  }
+  
+  .asas-primary-light-text {
+    color: hsl(201, 87%, 53%);
+  }
+  
+  .asas-brand-gradient {
+    background: linear-gradient(135deg, hsl(214, 100%, 34%) 0%, hsl(201, 87%, 53%) 100%);
   }
 }
 

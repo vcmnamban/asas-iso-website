@@ -95,4 +95,5 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 26, 2025. Updated branding with official Asas ISO logo and brand colors (#004aad, #1c98ed)
 - July 05, 2025. Initial setup
