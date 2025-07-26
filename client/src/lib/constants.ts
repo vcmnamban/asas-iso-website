@@ -159,6 +159,8 @@ export const COMPANY_INFO = {
   name: 'Asas ISO',
   tagline: 'The Foundation for Your Certification Success',
   description: 'Professional ISO training company based in Kuwait, serving the GCC region',
+  parentCompany: 'Al Noor International Consultants',
+  parentWebsite: 'https://alnoor-consultants.com/',
   address: 'Block 6, Street 105, Salmiya, Kuwait',
   phone: '+965 2226 3456',
   email: 'info@asasiso.com',

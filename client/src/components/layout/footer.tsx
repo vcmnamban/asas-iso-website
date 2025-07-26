@@ -17,11 +17,25 @@ export function Footer() {
               <img src={logoPath} alt="Asas ISO" className="w-8 h-8" />
               <span className="text-2xl font-bold text-gradient">{t('companyName')}</span>
             </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-4 leading-relaxed">
               {isRTL 
                 ? 'الأساس لنجاح شهادتك. شركة تدريب أيزو مهنية مقرها في الكويت، تخدم منطقة دول مجلس التعاون الخليجي.'
                 : 'The foundation for your certification success. Professional ISO training company based in Kuwait, serving the GCC region.'
               }
+            </p>
+            <p className="text-sm text-muted-foreground mb-6">
+              {isRTL 
+                ? 'شركة تابعة لشركة النور الدولية للاستشارات'
+                : 'A subsidiary of '
+              }
+              <a 
+                href="https://alnoor-consultants.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                {isRTL ? 'النور الدولية للاستشارات' : 'Al Noor International Consultants'}
+              </a>
             </p>
             <div className="flex gap-4">
               <a href={`https://${COMPANY_INFO.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
