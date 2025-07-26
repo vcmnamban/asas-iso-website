@@ -1,7 +1,8 @@
 import { Link } from 'wouter';
-import { Building2, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { COMPANY_INFO, ISO_STANDARDS } from '@/lib/constants';
+import logoPath from '@assets/2_1753519097355.png';
 
 export function Footer() {
   const { t, isRTL } = useLanguage();
@@ -13,7 +14,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Building2 className="w-8 h-8 text-primary" />
+              <img src={logoPath} alt="Asas ISO" className="w-8 h-8" />
               <span className="text-2xl font-bold">{t('companyName')}</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">

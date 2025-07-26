@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Building2 } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
+import logoPath from '@assets/2_1753519097355.png';
 
 export function Header() {
   const [location] = useLocation();
@@ -24,7 +25,7 @@ export function Header() {
       <div className="container-max">
         <div className="flex items-center justify-between h-16 px-4">
           <Link href="/" className="flex items-center gap-3">
-            <Building2 className="w-8 h-8 text-primary" />
+            <img src={logoPath} alt="Asas ISO" className="w-10 h-10" />
             <span className="text-xl font-bold text-foreground">{t('companyName')}</span>
           </Link>
 
