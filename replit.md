@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 26, 2025. Updated contact information: address to "5th Floor, Panasonic Tower, Qibla, Kuwait City" and phone to "+965 69668726"
 - July 26, 2025. Added parent company information: "A subsidiary of Al Noor International Consultants" with website link
 - July 26, 2025. Added ISO 17025:2017 (Testing and Calibration Laboratories) to training offerings
 - July 26, 2025. Updated ISO standards to latest versions: ISO 22301:2019, ISO 20000-1:2018, ISO 22000:2018

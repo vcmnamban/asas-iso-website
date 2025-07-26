@@ -161,8 +161,8 @@ export const COMPANY_INFO = {
   description: 'Professional ISO training company based in Kuwait, serving the GCC region',
   parentCompany: 'Al Noor International Consultants',
   parentWebsite: 'https://alnoor-consultants.com/',
-  address: 'Block 6, Street 105, Salmiya, Kuwait',
-  phone: '+965 2226 3456',
+  address: '5th Floor, Panasonic Tower, Qibla, Kuwait City',
+  phone: '+965 69668726',
   email: 'info@asasiso.com',
   linkedin: 'linkedin.com/company/asas-iso',
   website: 'www.asasiso.com'
