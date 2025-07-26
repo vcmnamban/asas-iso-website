@@ -61,7 +61,7 @@ export const ISO_STANDARDS = [
   },
   {
     id: 'iso-22301',
-    code: 'ISO 22301',
+    code: 'ISO 22301:2019',
     name: 'Business Continuity Management',
     icon: '🔄',
     color: 'purple',
@@ -76,7 +76,7 @@ export const ISO_STANDARDS = [
   },
   {
     id: 'iso-20000',
-    code: 'ISO 20000-1',
+    code: 'ISO 20000-1:2018',
     name: 'IT Service Management',
     icon: '💻',
     color: 'indigo',
@@ -91,7 +91,7 @@ export const ISO_STANDARDS = [
   },
   {
     id: 'iso-22000',
-    code: 'ISO 22000',
+    code: 'ISO 22000:2018',
     name: 'Food Safety Management',
     icon: '🍽️',
     color: 'teal',
