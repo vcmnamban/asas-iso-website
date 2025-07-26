@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 26, 2025. Added ISO 17025:2017 (Testing and Calibration Laboratories) to training offerings
 - July 26, 2025. Updated ISO standards to latest versions: ISO 22301:2019, ISO 20000-1:2018, ISO 22000:2018
 - July 26, 2025. Updated branding with official Asas ISO logo and brand colors (#004aad, #1c98ed)
 - July 05, 2025. Initial setup

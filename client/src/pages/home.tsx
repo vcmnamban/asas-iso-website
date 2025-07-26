@@ -18,7 +18,8 @@ import {
   Award,
   Building,
   Target,
-  Settings
+  Settings,
+  Microscope
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { SEOHead } from '@/components/common/seo-head';
@@ -42,6 +43,7 @@ export default function Home() {
     'iso-22301': RotateCcw,
     'iso-20000': Server,
     'iso-22000': Utensils,
+    'iso-17025': Microscope,
   };
 
   const colorMap = {
@@ -52,6 +54,7 @@ export default function Home() {
     'purple': 'bg-purple-500',
     'indigo': 'bg-indigo-500',
     'teal': 'bg-teal-500',
+    'cyan': 'bg-cyan-500',
   };
 
   return (

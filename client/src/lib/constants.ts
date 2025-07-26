@@ -103,6 +103,21 @@ export const ISO_STANDARDS = [
       'Market access',
       'Consumer confidence'
     ]
+  },
+  {
+    id: 'iso-17025',
+    code: 'ISO 17025:2017',
+    name: 'Testing and Calibration Laboratories',
+    icon: '🔬',
+    color: 'cyan',
+    description: 'Demonstrate competence and reliability of testing and calibration laboratories.',
+    industries: ['Laboratories', 'Healthcare', 'Manufacturing', 'Environmental Testing'],
+    benefits: [
+      'Enhanced credibility and competence',
+      'International recognition',
+      'Improved quality of results',
+      'Market access and compliance'
+    ]
   }
 ];
 
