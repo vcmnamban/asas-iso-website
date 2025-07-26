@@ -15,7 +15,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img src={logoPath} alt="Asas ISO" className="w-8 h-8" />
-              <span className="text-2xl font-bold">{t('companyName')}</span>
+              <span className="text-2xl font-bold text-gradient">{t('companyName')}</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               {isRTL 
