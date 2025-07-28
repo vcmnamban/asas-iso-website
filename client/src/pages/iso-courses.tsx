@@ -11,6 +11,7 @@ import {
   RotateCcw, 
   Server, 
   Utensils,
+  Microscope,
   Clock,
   Users,
   CheckCircle
@@ -31,6 +32,7 @@ export default function ISOCourses() {
     'iso-22301': RotateCcw,
     'iso-20000': Server,
     'iso-22000': Utensils,
+    'iso-17025': Microscope,
   };
 
   const colorMap = {
@@ -41,6 +43,7 @@ export default function ISOCourses() {
     'purple': 'bg-purple-500',
     'indigo': 'bg-indigo-500',
     'teal': 'bg-teal-500',
+    'cyan': 'bg-cyan-500',
   };
 
   const categories = [
@@ -60,7 +63,7 @@ export default function ISOCourses() {
           return ['iso-45001', 'iso-27001'].includes(standard.id);
         }
         if (selectedCategory === 'technology') {
-          return ['iso-20000', 'iso-22000'].includes(standard.id);
+          return ['iso-20000', 'iso-22000', 'iso-17025'].includes(standard.id);
         }
         return true;
       });
@@ -169,6 +172,12 @@ export default function ISOCourses() {
             {filteredStandards.map((standard) => {
               const IconComponent = iconMap[standard.id as keyof typeof iconMap];
               const colorClass = colorMap[standard.color as keyof typeof colorMap];
+              
+              // Skip rendering if icon or color is undefined
+              if (!IconComponent || !colorClass) {
+                console.warn(`Missing icon or color for standard: ${standard.id}`);
+                return null;
+              }
               
               return (
                 <Card key={standard.id} className="card-hover bg-white border-border">
