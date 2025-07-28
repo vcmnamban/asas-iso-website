@@ -57,7 +57,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else if (userMessage.includes("iso 27001") || userMessage.includes("security") || userMessage.includes("information")) {
         botResponse += "ISO 27001:2022 is our Information Security Management course. Essential for tech companies. ";
       } else if (userMessage.includes("schedule") || userMessage.includes("training") || userMessage.includes("course")) {
-        botResponse += "We offer In-house training, Public courses, and Online live sessions. ";
+        botResponse += "We offer In-house training and Online live sessions. ";
       } else if (userMessage.includes("price") || userMessage.includes("cost") || userMessage.includes("quote")) {
         botResponse += "For pricing information, please use our contact form or schedule a free consultation. ";
       } else if (userMessage.includes("location") || userMessage.includes("kuwait") || userMessage.includes("saudi") || userMessage.includes("oman")) {

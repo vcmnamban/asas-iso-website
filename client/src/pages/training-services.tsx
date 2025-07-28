@@ -4,13 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { 
   Building, 
-  Users, 
   Monitor, 
   CheckCircle, 
-  MapPin, 
-  Clock, 
-  DollarSign,
-  Star
+  DollarSign
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { SEOHead } from '@/components/common/seo-head';
@@ -41,28 +37,7 @@ export default function TrainingServices() {
         isRTL ? 'دعم ما بعد التدريب' : 'Post-training support'
       ]
     },
-    {
-      id: 'public',
-      title: isRTL ? 'الدورات العامة' : 'Public Courses',
-      description: isRTL 
-        ? 'جلسات تدريب مجدولة في مدينة الكويت، مع أماكن قادمة في الرياض ومسقط'
-        : 'Scheduled training sessions in Kuwait City, with upcoming venues in Riyadh and Muscat',
-      icon: Users,
-      color: 'green',
-      image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      benefits: [
-        isRTL ? 'جدول منتظم' : 'Regular schedule',
-        isRTL ? 'فرص التواصل' : 'Networking opportunities',
-        isRTL ? 'التسجيل الفردي' : 'Individual enrollment',
-        isRTL ? 'مرافق متميزة' : 'Premium facilities'
-      ],
-      features: [
-        isRTL ? 'تدريب في الفصول الدراسية' : 'Classroom training',
-        isRTL ? 'مواد موحدة' : 'Standardized materials',
-        isRTL ? 'تفاعل المجموعة' : 'Group interaction',
-        isRTL ? 'شهادة رسمية' : 'Official certification'
-      ]
-    },
+
     {
       id: 'online',
       title: isRTL ? 'التدريب المباشر عبر الإنترنت' : 'Online Live Training',
@@ -87,43 +62,14 @@ export default function TrainingServices() {
     }
   ];
 
-  const publicSchedule = [
-    {
-      course: 'ISO 9001:2015 Internal Auditor',
-      date: 'March 25-27, 2024',
-      location: isRTL ? 'مدينة الكويت' : 'Kuwait City',
-      duration: '3 Days',
-      status: 'open'
-    },
-    {
-      course: 'ISO 14001:2015 Implementation',
-      date: 'April 8-10, 2024',
-      location: isRTL ? 'مدينة الكويت' : 'Kuwait City',
-      duration: '3 Days',
-      status: 'open'
-    },
-    {
-      course: 'ISO 45001:2018 Internal Auditor',
-      date: 'April 22-24, 2024',
-      location: isRTL ? 'مدينة الكويت' : 'Kuwait City',
-      duration: '3 Days',
-      status: 'filling'
-    },
-    {
-      course: 'ISO 27001:2022 Awareness',
-      date: 'May 6, 2024',
-      location: isRTL ? 'الرياض (قادم)' : 'Riyadh (Coming Soon)',
-      duration: '1 Day',
-      status: 'soon'
-    }
-  ];
+
 
   return (
     <>
       <SEOHead
         title="Training Services - Flexible ISO Training Delivery | Asas ISO"
-        description="Choose from in-house, public, or online ISO training delivery methods. Professional training across Kuwait, Saudi Arabia, and Oman."
-        keywords="ISO training services, in-house training Kuwait, online ISO training, public ISO courses GCC"
+        description="Choose from in-house or online ISO training delivery methods. Professional training across Kuwait, Saudi Arabia, and Oman."
+        keywords="ISO training services, in-house training Kuwait, online ISO training, corporate training GCC"
       />
 
       {/* Hero Section */}
@@ -216,94 +162,7 @@ export default function TrainingServices() {
         </div>
       </section>
 
-      {/* Public Course Schedule */}
-      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {isRTL ? 'جدول الدورات العامة' : 'Public Course Schedule'}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {isRTL 
-                ? 'انضم إلى دوراتنا العامة المجدولة في مواقع مختلفة عبر منطقة دول مجلس التعاون الخليجي'
-                : 'Join our scheduled public courses at various locations across the GCC region'
-              }
-            </p>
-          </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'الدورة' : 'Course'}
-                    </th>
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'التاريخ' : 'Date'}
-                    </th>
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'الموقع' : 'Location'}
-                    </th>
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'المدة' : 'Duration'}
-                    </th>
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'الحالة' : 'Status'}
-                    </th>
-                    <th className="text-left py-4 px-4 font-semibold">
-                      {isRTL ? 'الإجراء' : 'Action'}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {publicSchedule.map((course, index) => (
-                    <tr key={index} className="border-b last:border-b-0">
-                      <td className="py-4 px-4 font-medium">{course.course}</td>
-                      <td className="py-4 px-4 text-muted-foreground">{course.date}</td>
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-muted-foreground" />
-                          {course.location}
-                        </div>
-                      </td>
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-muted-foreground" />
-                          {course.duration}
-                        </div>
-                      </td>
-                      <td className="py-4 px-4">
-                        <Badge 
-                          variant={course.status === 'open' ? 'default' : course.status === 'filling' ? 'secondary' : 'outline'}
-                          className="text-xs"
-                        >
-                          {course.status === 'open' && (isRTL ? 'مفتوح' : 'Open')}
-                          {course.status === 'filling' && (isRTL ? 'يمتلئ' : 'Filling Fast')}
-                          {course.status === 'soon' && (isRTL ? 'قريباً' : 'Coming Soon')}
-                        </Badge>
-                      </td>
-                      <td className="py-4 px-4">
-                        {course.status !== 'soon' ? (
-                          <Link href="/contact">
-                            <Button size="sm" variant="outline">
-                              {isRTL ? 'سجل' : 'Register'}
-                            </Button>
-                          </Link>
-                        ) : (
-                          <Button size="sm" variant="ghost" disabled>
-                            {isRTL ? 'قريباً' : 'Soon'}
-                          </Button>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Pricing Information */}
       <section className="section-padding bg-white">
@@ -320,7 +179,7 @@ export default function TrainingServices() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="border-border">
               <CardContent className="p-6 text-center">
                 <DollarSign className="w-12 h-12 text-green-600 mx-auto mb-4" />
@@ -355,44 +214,7 @@ export default function TrainingServices() {
               </CardContent>
             </Card>
 
-            <Card className="border-border border-primary">
-              <CardContent className="p-6 text-center">
-                <div className="flex justify-center mb-4">
-                  <Badge className="bg-primary text-primary-foreground">
-                    {isRTL ? 'الأكثر شعبية' : 'Most Popular'}
-                  </Badge>
-                </div>
-                <Star className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-3">
-                  {isRTL ? 'الدورات العامة' : 'Public Courses'}
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  {isRTL 
-                    ? 'قيمة ممتازة مع فرص التواصل'
-                    : 'Great value with networking opportunities'
-                  }
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
-                  <li className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    {isRTL ? 'مرافق متميزة' : 'Premium facilities'}
-                  </li>
-                  <li className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    {isRTL ? 'وجبات ومشروبات' : 'Meals and refreshments'}
-                  </li>
-                  <li className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    {isRTL ? 'شهادة رسمية' : 'Official certification'}
-                  </li>
-                </ul>
-                <Link href="/contact">
-                  <Button className="w-full">
-                    {isRTL ? 'عرض الأسعار' : 'View Pricing'}
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+
 
             <Card className="border-border">
               <CardContent className="p-6 text-center">
