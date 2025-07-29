@@ -401,56 +401,7 @@ export default function ISODetail() {
         </div>
       </section>
 
-      {/* Training Levels */}
-      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {isRTL ? 'مستويات التدريب المتاحة' : 'Available Training Levels'}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {isRTL 
-                ? 'اختر مستوى التدريب المناسب لاحتياجات مؤسستك'
-                : 'Choose the training level that suits your organization\'s needs'
-              }
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TRAINING_LEVELS.map((level, index) => (
-              <Card key={level.id} className="bg-white border-border">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl font-bold text-primary">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">
-                    {isRTL ? 
-                      (level.id === 'awareness' ? 'التدريب التوعوي' : 
-                       level.id === 'implementation' ? 'ورشة التنفيذ' : 
-                       'تدريب المراجع الداخلي') 
-                      : level.name
-                    }
-                  </h3>
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Clock className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium">{level.duration}</span>
-                  </div>
-                  <p className="text-muted-foreground mb-6">{level.description}</p>
-                  <div className="flex items-center justify-center gap-2 mb-6">
-                    <Users className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">{level.target}</span>
-                  </div>
-                  <Link href="/contact">
-                    <Button variant="outline" className="w-full">
-                      {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Related Courses */}
       <section className="section-padding bg-white">
