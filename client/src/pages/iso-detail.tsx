@@ -294,10 +294,15 @@ export default function ISODetail() {
                                 </Badge>
                               </div>
                               <p className="text-sm text-muted-foreground mb-1">{details.description}</p>
-                              <p className="text-xs text-primary font-medium">
+                              <p className="text-xs text-primary font-medium mb-3">
                                 <Users className="w-3 h-3 inline mr-1" />
                                 {details.target}
                               </p>
+                              <Link href="/contact">
+                                <Button variant="outline" size="sm" className="w-full">
+                                  {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
+                                </Button>
+                              </Link>
                             </div>
                           </div>
                         );
