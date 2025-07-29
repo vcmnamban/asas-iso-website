@@ -131,8 +131,10 @@
   }
   
   .btn-primary:hover {
-    background-color: hsl(var(--primary) / 0.9);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    background-color: hsl(var(--primary) / 0.9) !important;
+    color: hsl(var(--primary-foreground)) !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+    transform: translateY(-1px);
   }
   
   .btn-secondary {
