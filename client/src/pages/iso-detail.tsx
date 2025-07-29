@@ -158,26 +158,28 @@ export default function ISODetail() {
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'مستويات التدريب' : 'Training Levels'}
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 items-stretch">
                   {TRAINING_LEVELS.map((level, index) => (
                     <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
-                      <CardContent className="p-6 h-full flex flex-col">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
-                            {index + 1}
+                      <CardContent className="p-6 h-full flex flex-col justify-between">
+                        <div className="flex-grow">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
+                              {index + 1}
+                            </div>
+                            <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {level.duration}
+                            </Badge>
                           </div>
-                          <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
-                            <Clock className="w-3 h-3 mr-1" />
-                            {level.duration}
-                          </Badge>
+                          <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{level.name}</h5>
+                          <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{level.description}</p>
+                          <div className="flex items-center gap-2 mb-4">
+                            <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                            <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors leading-relaxed">{level.target}</span>
+                          </div>
                         </div>
-                        <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{level.name}</h5>
-                        <p className="text-sm text-muted-foreground mb-3 flex-grow">{level.description}</p>
-                        <div className="flex items-center gap-2 mb-4">
-                          <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                          <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{level.target}</span>
-                        </div>
-                        <Link href="/contact" className="mt-auto">
+                        <Link href="/contact">
                           <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                             {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                           </Button>
@@ -193,7 +195,7 @@ export default function ISODetail() {
                           {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
                         </h5>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                         {(standard as any).specializedTrainings.map((training: string, index: number) => {
                         // Define specialized training details based on the training name
                         const getTrainingDetails = (trainingName: string) => {
@@ -288,23 +290,25 @@ export default function ISODetail() {
 
                         return (
                           <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
-                            <CardContent className="p-6 h-full flex flex-col">
-                              <div className="flex items-center gap-3 mb-4">
-                                <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
-                                  {TRAINING_LEVELS.length + index + 1}
+                            <CardContent className="p-6 h-full flex flex-col justify-between">
+                              <div className="flex-grow">
+                                <div className="flex items-center gap-3 mb-4">
+                                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
+                                    {TRAINING_LEVELS.length + index + 1}
+                                  </div>
+                                  <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
+                                    <Clock className="w-3 h-3 mr-1" />
+                                    {details.duration}
+                                  </Badge>
                                 </div>
-                                <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
-                                  <Clock className="w-3 h-3 mr-1" />
-                                  {details.duration}
-                                </Badge>
+                                <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{training}</h5>
+                                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{details.description}</p>
+                                <div className="flex items-center gap-2 mb-4">
+                                  <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                  <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors leading-relaxed">{details.target}</span>
+                                </div>
                               </div>
-                              <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{training}</h5>
-                              <p className="text-sm text-muted-foreground mb-3 flex-grow">{details.description}</p>
-                              <div className="flex items-center gap-2 mb-4">
-                                <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                                <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{details.target}</span>
-                              </div>
-                              <Link href="/contact" className="mt-auto">
+                              <Link href="/contact">
                                 <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                                   {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                                 </Button>
