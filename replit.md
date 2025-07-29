@@ -95,6 +95,9 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 29, 2025. Updated quote form industry list: added "Food Processing" and "Supply Chain & Logistics", changed "Trading & Logistics" to "Trading & Contracting"
+- July 29, 2025. Created comprehensive quote request system with dedicated /quote page, form validation, and backend API integration
+- July 29, 2025. Fixed button hover styles with stronger CSS specificity to override shadcn/ui conflicts using explicit HSL color values
 - July 29, 2025. Fixed training course layout structure - separated specialized training courses from regular training levels for better alignment and organization
 - July 29, 2025. Updated homepage hero subtitle from "Proudly based in Kuwait, serving businesses across the GCC" to "Your trusted partner for ISO trainings across the GCC"
 - July 28, 2025. Added specialized training courses under each ISO standard with 25+ additional training programs

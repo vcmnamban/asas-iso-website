@@ -36,8 +36,10 @@ type QuoteFormData = z.infer<typeof quoteSchema>;
 const industries = [
   'Oil & Gas',
   'Construction & Infrastructure',
-  'Trading & Logistics',
+  'Trading & Contracting',
+  'Supply Chain & Logistics',
   'Manufacturing',
+  'Food Processing',
   'Healthcare',
   'Financial Services',
   'Technology',
@@ -122,7 +124,6 @@ export default function Quote() {
       setSelectedStandards([]);
     },
     onError: (error: any) => {
-      console.error('Quote submission error:', error);
       toast({
         title: isRTL ? 'خطأ' : 'Error',
         description: isRTL 
@@ -134,10 +135,7 @@ export default function Quote() {
   });
 
   const onSubmit = (data: QuoteFormData) => {
-    console.log('Form data:', data);
-    console.log('Selected standards:', selectedStandards);
     const submitData = { ...data, isoStandards: selectedStandards };
-    console.log('Submit data:', submitData);
     submitQuote.mutate(submitData);
   };
 
