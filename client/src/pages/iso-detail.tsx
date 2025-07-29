@@ -180,7 +180,7 @@ export default function ISODetail() {
                           </div>
                         </div>
                         <Link href="/contact">
-                          <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+                          <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-white transition-all">
                             {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                           </Button>
                         </Link>
@@ -307,7 +307,7 @@ export default function ISODetail() {
                                 </div>
                               </div>
                               <Link href="/contact">
-                                <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+                                <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-white transition-all">
                                   {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                                 </Button>
                               </Link>
