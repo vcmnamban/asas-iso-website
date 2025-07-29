@@ -160,8 +160,8 @@ export default function ISODetail() {
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   {TRAINING_LEVELS.map((level, index) => (
-                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group">
-                      <CardContent className="p-6">
+                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
+                      <CardContent className="p-6 h-full flex flex-col">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
                             {index + 1}
@@ -171,13 +171,13 @@ export default function ISODetail() {
                             {level.duration}
                           </Badge>
                         </div>
-                        <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors">{level.name}</h5>
-                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{level.description}</p>
+                        <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{level.name}</h5>
+                        <p className="text-sm text-muted-foreground mb-3 flex-grow">{level.description}</p>
                         <div className="flex items-center gap-2 mb-4">
                           <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                           <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{level.target}</span>
                         </div>
-                        <Link href="/contact">
+                        <Link href="/contact" className="mt-auto">
                           <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                             {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                           </Button>
@@ -287,8 +287,8 @@ export default function ISODetail() {
                         const details = getTrainingDetails(training);
 
                         return (
-                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group">
-                            <CardContent className="p-6">
+                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
+                            <CardContent className="p-6 h-full flex flex-col">
                               <div className="flex items-center gap-3 mb-4">
                                 <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
                                   {TRAINING_LEVELS.length + index + 1}
@@ -298,13 +298,13 @@ export default function ISODetail() {
                                   {details.duration}
                                 </Badge>
                               </div>
-                              <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors">{training}</h5>
-                              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{details.description}</p>
+                              <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{training}</h5>
+                              <p className="text-sm text-muted-foreground mb-3 flex-grow">{details.description}</p>
                               <div className="flex items-center gap-2 mb-4">
                                 <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                                 <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{details.target}</span>
                               </div>
-                              <Link href="/contact">
+                              <Link href="/contact" className="mt-auto">
                                 <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                                   {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                                 </Button>
