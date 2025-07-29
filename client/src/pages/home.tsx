@@ -91,7 +91,7 @@ export default function Home() {
                 <Calculator className="mr-2 w-5 h-5" />
                 {t('requestQuote')}
               </Button>
-              <Button onClick={() => scrollToSection('consultation')} variant="outline" className="btn-outline">
+              <Button onClick={() => scrollToSection('consultation')} variant="secondary" className="btn-secondary">
                 <Calendar className="mr-2 w-5 h-5" />
                 {t('scheduleConsultation')}
               </Button>
