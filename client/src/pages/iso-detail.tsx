@@ -437,7 +437,7 @@ export default function ISODetail() {
                   </div>
                   <Link href="/contact">
                     <Button variant="outline" className="w-full">
-                      {isRTL ? 'استفسر عن هذا المستوى' : 'Inquire About This Level'}
+                      {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                     </Button>
                   </Link>
                 </CardContent>
