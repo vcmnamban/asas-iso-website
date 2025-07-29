@@ -127,27 +127,29 @@
   }
   
   .btn-primary {
-    background-color: hsl(var(--primary)) !important;
-    color: hsl(var(--primary-foreground)) !important;
+    background-color: hsl(214, 100%, 34%) !important;
+    color: white !important;
     @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg;
     border: none !important;
   }
   
   .btn-primary:hover {
-    background-color: hsl(var(--primary) / 0.9) !important;
-    color: hsl(var(--primary-foreground)) !important;
+    background-color: hsl(214, 100%, 28%) !important;
+    color: white !important;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
     transform: translateY(-1px) !important;
   }
   
-  button.btn-primary {
-    background-color: hsl(var(--primary)) !important;
-    color: hsl(var(--primary-foreground)) !important;
+  button.btn-primary,
+  button.btn-primary:not(:disabled):not(.disabled) {
+    background-color: hsl(214, 100%, 34%) !important;
+    color: white !important;
   }
   
-  button.btn-primary:hover {
-    background-color: hsl(var(--primary) / 0.9) !important;
-    color: hsl(var(--primary-foreground)) !important;
+  button.btn-primary:hover,
+  button.btn-primary:not(:disabled):not(.disabled):hover {
+    background-color: hsl(214, 100%, 28%) !important;
+    color: white !important;
   }
   
   .btn-secondary {
@@ -159,16 +161,32 @@
   }
   
   .btn-outline {
-    @apply border-2 border-white text-white px-6 py-3 rounded-full font-semibold transition-all duration-300;
-    background-color: transparent;
+    background-color: transparent !important;
+    color: hsl(214, 100%, 34%) !important;
+    border: 2px solid hsl(214, 100%, 34%) !important;
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
   }
   
   .btn-outline:hover {
-    background-color: white !important;
+    background-color: hsl(214, 100%, 34%) !important;
+    color: white !important;
+    border-color: hsl(214, 100%, 34%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2) !important;
+  }
+  
+  button.btn-outline,
+  button.btn-outline:not(:disabled):not(.disabled) {
+    background-color: transparent !important;
     color: hsl(214, 100%, 34%) !important;
-    border-color: white !important;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+    border: 2px solid hsl(214, 100%, 34%) !important;
+  }
+  
+  button.btn-outline:hover,
+  button.btn-outline:not(:disabled):not(.disabled):hover {
+    background-color: hsl(214, 100%, 34%) !important;
+    color: white !important;
+    border-color: hsl(214, 100%, 34%) !important;
   }
   
   .section-padding {
