@@ -158,10 +158,10 @@ export default function ISODetail() {
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'مستويات التدريب' : 'Training Levels'}
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 items-stretch">
+                <div className="training-cards-grid mb-8">
                   {TRAINING_LEVELS.map((level, index) => (
-                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group card-equal-height">
-                      <CardContent className="p-6 card-content justify-between">
+                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group training-card">
+                      <div className="card-content-fixed">
                         <div className="flex-grow">
                           <div className="flex items-center gap-3 mb-4">
                             <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
@@ -184,7 +184,7 @@ export default function ISODetail() {
                             {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                           </Button>
                         </Link>
-                      </CardContent>
+                      </div>
                     </Card>
                   ))}
                   
@@ -195,7 +195,7 @@ export default function ISODetail() {
                           {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
                         </h5>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                      <div className="training-cards-grid">
                         {(standard as any).specializedTrainings.map((training: string, index: number) => {
                         // Define specialized training details based on the training name
                         const getTrainingDetails = (trainingName: string) => {
@@ -289,8 +289,8 @@ export default function ISODetail() {
                         const details = getTrainingDetails(training);
 
                         return (
-                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group card-equal-height">
-                            <CardContent className="p-6 card-content justify-between">
+                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group training-card">
+                            <div className="card-content-fixed">
                               <div className="flex-grow">
                                 <div className="flex items-center gap-3 mb-4">
                                   <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
@@ -313,7 +313,7 @@ export default function ISODetail() {
                                   {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                                 </Button>
                               </Link>
-                            </CardContent>
+                            </div>
                           </Card>
                         );
                         })}

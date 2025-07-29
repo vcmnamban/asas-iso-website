@@ -79,17 +79,24 @@
     -webkit-line-clamp: 2;
   }
   
-  .card-equal-height {
-    min-height: 280px;
+  .training-cards-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .training-cards-grid .training-card {
+    height: 320px;
     display: flex;
     flex-direction: column;
   }
   
-  .card-equal-height .card-content {
-    flex: 1;
+  .training-cards-grid .training-card .card-content-fixed {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    justify-content: space-between;
+    padding: 1.5rem;
   }
 }
 
