@@ -6,7 +6,7 @@ export const ISO_STANDARDS = [
     icon: '🏆',
     color: 'blue',
     description: 'Establish quality management systems that consistently meet customer and regulatory requirements.',
-    industries: ['Manufacturing', 'Service Industries', 'Healthcare', 'Education'],
+    industries: ['Manufacturing', 'Service Industries', 'Healthcare', 'Education', 'Trading and Contracting Companies'],
     benefits: [
       'Improved customer satisfaction',
       'Better operational efficiency',
@@ -25,7 +25,7 @@ export const ISO_STANDARDS = [
     icon: '🌱',
     color: 'green',
     description: 'Manage environmental responsibilities and reduce environmental impact systematically.',
-    industries: ['Manufacturing', 'Oil & Gas', 'Construction', 'Energy'],
+    industries: ['Manufacturing', 'Oil & Gas', 'Construction Companies', 'Energy', 'Trading and Contracting Companies'],
     benefits: [
       'Reduced environmental impact',
       'Compliance with regulations',
@@ -43,7 +43,7 @@ export const ISO_STANDARDS = [
     icon: '🛡️',
     color: 'orange',
     description: 'Protect workers and create safe, healthy working environments.',
-    industries: ['Construction', 'Oil & Gas', 'Manufacturing', 'Mining'],
+    industries: ['Construction Companies', 'Oil & Gas', 'Manufacturing', 'Mining', 'Trading and Contracting Companies'],
     benefits: [
       'Reduced workplace injuries',
       'Lower insurance costs',
@@ -64,7 +64,7 @@ export const ISO_STANDARDS = [
     icon: '🔒',
     color: 'red',
     description: 'Protect information assets and manage cybersecurity risks effectively.',
-    industries: ['Technology', 'Financial Services', 'Government', 'Healthcare'],
+    industries: ['Technology', 'Financial Services', 'Government', 'Healthcare', 'Oil & Gas'],
     benefits: [
       'Enhanced data protection',
       'Reduced security incidents',
@@ -85,7 +85,7 @@ export const ISO_STANDARDS = [
     icon: '🔄',
     color: 'purple',
     description: 'Ensure business continuity and resilience against disruptions.',
-    industries: ['All Industries', 'Financial Services', 'Government', 'Healthcare'],
+    industries: ['All Industries', 'Financial Services', 'Government', 'Healthcare', 'Oil & Gas', 'Trading and Contracting Companies'],
     benefits: [
       'Faster recovery from disruptions',
       'Reduced downtime costs',
@@ -105,7 +105,7 @@ export const ISO_STANDARDS = [
     icon: '💻',
     color: 'indigo',
     description: 'Deliver high-quality IT services that meet business and customer needs.',
-    industries: ['Technology', 'Financial Services', 'Telecommunications', 'Government'],
+    industries: ['Technology', 'Financial Services', 'Telecommunications', 'Government', 'Oil & Gas'],
     benefits: [
       'Improved service quality',
       'Better customer satisfaction',
@@ -123,7 +123,7 @@ export const ISO_STANDARDS = [
     icon: '🍽️',
     color: 'teal',
     description: 'Ensure food safety throughout the entire food chain.',
-    industries: ['Food Manufacturing', 'Restaurants', 'Retail', 'Agriculture'],
+    industries: ['Food Manufacturing', 'Restaurants', 'Retail', 'Agriculture', 'Trading and Contracting Companies'],
     benefits: [
       'Enhanced food safety',
       'Reduced contamination risks',
@@ -143,7 +143,7 @@ export const ISO_STANDARDS = [
     icon: '🔬',
     color: 'cyan',
     description: 'Demonstrate competence and reliability of testing and calibration laboratories.',
-    industries: ['Laboratories', 'Healthcare', 'Manufacturing', 'Environmental Testing'],
+    industries: ['Laboratories', 'Healthcare', 'Manufacturing', 'Environmental Testing', 'Oil & Gas'],
     benefits: [
       'Enhanced credibility and competence',
       'International recognition',
