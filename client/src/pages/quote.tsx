@@ -69,9 +69,7 @@ const gccCountries = [
 
 const trainingTypes = [
   'In-House Training',
-  'Online Training',
-  'Hybrid Training',
-  'Consultation Only'
+  'Online Training'
 ];
 
 const isoStandards = [

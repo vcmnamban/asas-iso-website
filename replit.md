@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 29, 2025. Simplified training type options in quote form to only "In-House Training" and "Online Training" (removed Hybrid and Consultation Only)
 - July 29, 2025. Updated quote form industry list: added "Food Processing" and "Supply Chain & Logistics", changed "Trading & Logistics" to "Trading & Contracting"
 - July 29, 2025. Created comprehensive quote request system with dedicated /quote page, form validation, and backend API integration
 - July 29, 2025. Fixed button hover styles with stronger CSS specificity to override shadcn/ui conflicts using explicit HSL color values
