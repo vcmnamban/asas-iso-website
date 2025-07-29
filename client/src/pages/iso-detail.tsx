@@ -189,12 +189,10 @@ export default function ISODetail() {
                   ))}
                   
                   {(standard as any).specializedTrainings && (
-                    <>
-                      <div className="mt-8 mb-4">
-                        <h5 className="text-lg font-semibold text-primary">
-                          {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
-                        </h5>
-                      </div>
+                    <div className="mt-8">
+                      <h5 className="text-lg font-semibold text-primary mb-6">
+                        {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
+                      </h5>
                       <div className="training-cards-grid">
                         {(standard as any).specializedTrainings.map((training: string, index: number) => {
                         // Define specialized training details based on the training name
@@ -318,7 +316,7 @@ export default function ISODetail() {
                         );
                         })}
                       </div>
-                    </>
+                    </div>
                   )}
                 </div>
                 
