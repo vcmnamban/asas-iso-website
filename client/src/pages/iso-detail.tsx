@@ -187,138 +187,138 @@ export default function ISODetail() {
                       </div>
                     </Card>
                   ))}
-                  
-                  {(standard as any).specializedTrainings && (
-                    <div className="mt-8">
-                      <h5 className="text-lg font-semibold text-primary mb-6">
-                        {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
-                      </h5>
-                      <div className="training-cards-grid">
-                        {(standard as any).specializedTrainings.map((training: string, index: number) => {
-                        // Define specialized training details based on the training name
-                        const getTrainingDetails = (trainingName: string) => {
-                          // Common training details for different types
-                          const commonDetails = {
-                            duration: '1-2 Days',
-                            target: isRTL ? 'جميع الموظفين والعاملين' : 'All employees and staff members'
-                          };
+                </div>
 
-                          // Specific descriptions based on training type
-                          if (trainingName.toLowerCase().includes('root cause') || trainingName.toLowerCase().includes('corrective')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب شامل على تحليل الأسباب الجذرية وتطبيق الإجراءات التصحيحية الفعالة'
-                                : 'Comprehensive training on root cause analysis and implementing effective corrective actions'
-                            };
-                          } else if (trainingName.toLowerCase().includes('process mapping') || trainingName.toLowerCase().includes('process-based')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على رسم العمليات والتفكير القائم على العمليات لتحسين الأداء'
-                                : 'Training on process mapping and process-based thinking for performance improvement'
-                            };
-                          } else if (trainingName.toLowerCase().includes('environmental') || trainingName.toLowerCase().includes('aspect')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على تحديد وتقييم الجوانب والآثار البيئية'
-                                : 'Training on identifying and evaluating environmental aspects and impacts'
-                            };
-                          } else if (trainingName.toLowerCase().includes('hira') || trainingName.toLowerCase().includes('hazard')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على تحديد المخاطر وتقييم المخاطر في مكان العمل'
-                                : 'Training on hazard identification and risk assessment in the workplace'
-                            };
-                          } else if (trainingName.toLowerCase().includes('fire safety') || trainingName.toLowerCase().includes('emergency')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على إجراءات السلامة من الحرائق والاستجابة للطوارئ'
-                                : 'Training on fire safety procedures and emergency response protocols'
-                            };
-                          } else if (trainingName.toLowerCase().includes('cybersecurity') || trainingName.toLowerCase().includes('information security')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على أسس الأمن السيبراني وحماية المعلومات'
-                                : 'Training on cybersecurity fundamentals and information protection'
-                            };
-                          } else if (trainingName.toLowerCase().includes('haccp') || trainingName.toLowerCase().includes('food safety')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على نظام تحليل المخاطر ونقاط التحكم الحرجة'
-                                : 'Training on Hazard Analysis and Critical Control Points system'
-                            };
-                          } else if (trainingName.toLowerCase().includes('business continuity') || trainingName.toLowerCase().includes('bia')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على تحليل تأثير الأعمال واستمرارية العمليات'
-                                : 'Training on business impact analysis and operational continuity'
-                            };
-                          } else if (trainingName.toLowerCase().includes('service desk') || trainingName.toLowerCase().includes('incident')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على إدارة خدمة المساعدة والاستجابة للحوادث'
-                                : 'Training on service desk management and incident response'
-                            };
-                          } else if (trainingName.toLowerCase().includes('measurement') || trainingName.toLowerCase().includes('uncertainty')) {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'تدريب على قياس عدم اليقين في القياسات والاختبارات'
-                                : 'Training on measurement uncertainty in testing and calibration'
-                            };
-                          } else {
-                            return {
-                              ...commonDetails,
-                              description: isRTL 
-                                ? 'دورة متخصصة مصممة لتعميق الفهم في هذا المجال المحدد'
-                                : 'Specialized course designed to deepen understanding in this specific area'
-                            };
-                          }
+                {(standard as any).specializedTrainings && (
+                  <div className="mb-8">
+                    <h4 className="text-xl font-semibold text-primary mb-6">
+                      {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
+                    </h4>
+                    <div className="training-cards-grid">
+                      {(standard as any).specializedTrainings.map((training: string, index: number) => {
+                      // Define specialized training details based on the training name
+                      const getTrainingDetails = (trainingName: string) => {
+                        // Common training details for different types
+                        const commonDetails = {
+                          duration: '1-2 Days',
+                          target: isRTL ? 'جميع الموظفين والعاملين' : 'All employees and staff members'
                         };
 
-                        const details = getTrainingDetails(training);
+                        // Specific descriptions based on training type
+                        if (trainingName.toLowerCase().includes('root cause') || trainingName.toLowerCase().includes('corrective')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب شامل على تحليل الأسباب الجذرية وتطبيق الإجراءات التصحيحية الفعالة'
+                              : 'Comprehensive training on root cause analysis and implementing effective corrective actions'
+                          };
+                        } else if (trainingName.toLowerCase().includes('process mapping') || trainingName.toLowerCase().includes('process-based')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على رسم العمليات والتفكير القائم على العمليات لتحسين الأداء'
+                              : 'Training on process mapping and process-based thinking for performance improvement'
+                          };
+                        } else if (trainingName.toLowerCase().includes('environmental') || trainingName.toLowerCase().includes('aspect')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على تحديد وتقييم الجوانب والآثار البيئية'
+                              : 'Training on identifying and evaluating environmental aspects and impacts'
+                          };
+                        } else if (trainingName.toLowerCase().includes('hira') || trainingName.toLowerCase().includes('hazard')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على تحديد المخاطر وتقييم المخاطر في مكان العمل'
+                              : 'Training on hazard identification and risk assessment in the workplace'
+                          };
+                        } else if (trainingName.toLowerCase().includes('fire safety') || trainingName.toLowerCase().includes('emergency')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على إجراءات السلامة من الحرائق والاستجابة للطوارئ'
+                              : 'Training on fire safety procedures and emergency response protocols'
+                          };
+                        } else if (trainingName.toLowerCase().includes('cybersecurity') || trainingName.toLowerCase().includes('information security')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على أسس الأمن السيبراني وحماية المعلومات'
+                              : 'Training on cybersecurity fundamentals and information protection'
+                          };
+                        } else if (trainingName.toLowerCase().includes('haccp') || trainingName.toLowerCase().includes('food safety')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على نظام تحليل المخاطر ونقاط التحكم الحرجة'
+                              : 'Training on Hazard Analysis and Critical Control Points system'
+                          };
+                        } else if (trainingName.toLowerCase().includes('business continuity') || trainingName.toLowerCase().includes('bia')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على تحليل تأثير الأعمال واستمرارية العمليات'
+                              : 'Training on business impact analysis and operational continuity'
+                          };
+                        } else if (trainingName.toLowerCase().includes('service desk') || trainingName.toLowerCase().includes('incident')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على إدارة خدمة المساعدة والاستجابة للحوادث'
+                              : 'Training on service desk management and incident response'
+                          };
+                        } else if (trainingName.toLowerCase().includes('measurement') || trainingName.toLowerCase().includes('uncertainty')) {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'تدريب على قياس عدم اليقين في القياسات والاختبارات'
+                              : 'Training on measurement uncertainty in testing and calibration'
+                          };
+                        } else {
+                          return {
+                            ...commonDetails,
+                            description: isRTL 
+                              ? 'دورة متخصصة مصممة لتعميق الفهم في هذا المجال المحدد'
+                              : 'Specialized course designed to deepen understanding in this specific area'
+                          };
+                        }
+                      };
 
-                        return (
-                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group training-card">
-                            <div className="card-content-fixed">
-                              <div className="flex-grow">
-                                <div className="flex items-center gap-3 mb-4">
-                                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
-                                    {TRAINING_LEVELS.length + index + 1}
-                                  </div>
-                                  <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
-                                    <Clock className="w-3 h-3 mr-1" />
-                                    {details.duration}
-                                  </Badge>
+                      const details = getTrainingDetails(training);
+
+                      return (
+                        <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group training-card">
+                          <div className="card-content-fixed">
+                            <div className="flex-grow">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
+                                  {TRAINING_LEVELS.length + index + 1}
                                 </div>
-                                <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{training}</h5>
-                                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{details.description}</p>
-                                <div className="flex items-center gap-2 mb-4">
-                                  <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                                  <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors leading-relaxed">{details.target}</span>
-                                </div>
+                                <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
+                                  <Clock className="w-3 h-3 mr-1" />
+                                  {details.duration}
+                                </Badge>
                               </div>
-                              <Link href="/contact">
-                                <Button size="sm" className="w-full inquiry-button">
-                                  {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
-                                </Button>
-                              </Link>
+                              <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors leading-tight">{training}</h5>
+                              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{details.description}</p>
+                              <div className="flex items-center gap-2 mb-4">
+                                <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors leading-relaxed">{details.target}</span>
+                              </div>
                             </div>
-                          </Card>
-                        );
-                        })}
-                      </div>
+                            <Link href="/contact">
+                              <Button size="sm" className="w-full inquiry-button">
+                                {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
+                              </Button>
+                            </Link>
+                          </div>
+                        </Card>
+                      );
+                      })}
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
                 
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'الفوائد الرئيسية' : 'Key Benefits'}
