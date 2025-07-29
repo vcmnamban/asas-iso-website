@@ -160,8 +160,8 @@ export default function ISODetail() {
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 items-stretch">
                   {TRAINING_LEVELS.map((level, index) => (
-                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
-                      <CardContent className="p-6 h-full flex flex-col justify-between">
+                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group card-equal-height">
+                      <CardContent className="p-6 card-content justify-between">
                         <div className="flex-grow">
                           <div className="flex items-center gap-3 mb-4">
                             <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
@@ -289,8 +289,8 @@ export default function ISODetail() {
                         const details = getTrainingDetails(training);
 
                         return (
-                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group h-full">
-                            <CardContent className="p-6 h-full flex flex-col justify-between">
+                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group card-equal-height">
+                            <CardContent className="p-6 card-content justify-between">
                               <div className="flex-grow">
                                 <div className="flex items-center gap-3 mb-4">
                                   <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
