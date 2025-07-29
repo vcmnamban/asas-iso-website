@@ -110,7 +110,7 @@ export default function Quote() {
   });
 
   const submitQuote = useMutation({
-    mutationFn: (data: QuoteFormData) => apiRequest('/api/quotes', 'POST', data),
+    mutationFn: (data: QuoteFormData) => apiRequest('POST', '/api/quotes', data),
     onSuccess: () => {
       toast({
         title: isRTL ? 'تم الإرسال بنجاح' : 'Quote Request Submitted',
@@ -121,7 +121,8 @@ export default function Quote() {
       form.reset();
       setSelectedStandards([]);
     },
-    onError: () => {
+    onError: (error: any) => {
+      console.error('Quote submission error:', error);
       toast({
         title: isRTL ? 'خطأ' : 'Error',
         description: isRTL 
@@ -133,16 +134,20 @@ export default function Quote() {
   });
 
   const onSubmit = (data: QuoteFormData) => {
-    submitQuote.mutate({ ...data, isoStandards: selectedStandards });
+    console.log('Form data:', data);
+    console.log('Selected standards:', selectedStandards);
+    const submitData = { ...data, isoStandards: selectedStandards };
+    console.log('Submit data:', submitData);
+    submitQuote.mutate(submitData);
   };
 
   const handleStandardChange = (standardId: string, checked: boolean) => {
-    if (checked) {
-      setSelectedStandards([...selectedStandards, standardId]);
-    } else {
-      setSelectedStandards(selectedStandards.filter(id => id !== standardId));
-    }
-    form.setValue('isoStandards', selectedStandards);
+    const newStandards = checked 
+      ? [...selectedStandards, standardId]
+      : selectedStandards.filter(id => id !== standardId);
+    
+    setSelectedStandards(newStandards);
+    form.setValue('isoStandards', newStandards);
   };
 
   return (
