@@ -127,14 +127,27 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold transition-colors shadow-lg;
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg;
+    border: none !important;
   }
   
   .btn-primary:hover {
     background-color: hsl(var(--primary) / 0.9) !important;
     color: hsl(var(--primary-foreground)) !important;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
-    transform: translateY(-1px);
+    transform: translateY(-1px) !important;
+  }
+  
+  button.btn-primary {
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+  }
+  
+  button.btn-primary:hover {
+    background-color: hsl(var(--primary) / 0.9) !important;
+    color: hsl(var(--primary-foreground)) !important;
   }
   
   .btn-secondary {
