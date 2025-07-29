@@ -10,6 +10,7 @@ import {
   RotateCcw, 
   Server, 
   Utensils,
+  Microscope,
   Clock,
   Users,
   CheckCircle,
@@ -57,6 +58,7 @@ export default function ISODetail() {
     'iso-22301': RotateCcw,
     'iso-20000': Server,
     'iso-22000': Utensils,
+    'iso-17025': Microscope,
   };
 
   const colorMap = {
@@ -67,6 +69,7 @@ export default function ISODetail() {
     'purple': 'bg-purple-500',
     'indigo': 'bg-indigo-500',
     'teal': 'bg-teal-500',
+    'cyan': 'bg-cyan-500',
   };
 
   const IconComponent = iconMap[standard.id as keyof typeof iconMap];
@@ -139,6 +142,22 @@ export default function ISODetail() {
                     </div>
                   ))}
                 </div>
+
+                {(standard as any).specializedTrainings && (
+                  <>
+                    <h4 className="text-xl font-semibold mb-4">
+                      {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
+                    </h4>
+                    <div className="grid grid-cols-1 gap-3 mb-8">
+                      {(standard as any).specializedTrainings.map((training: string, index: number) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-secondary/20 rounded-lg">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-muted-foreground font-medium">{training}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
 
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'الصناعات المستهدفة' : 'Target Industries'}

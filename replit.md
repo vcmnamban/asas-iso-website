@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- July 28, 2025. Added specialized training courses under each ISO standard with 25+ additional training programs
 - July 28, 2025. Removed "Public courses" from all sections of the website and training services
 - July 26, 2025. Updated contact information: address to "5th Floor, Panasonic Tower, Qibla, Kuwait City" and phone to "+965 69668726"
 - July 26, 2025. Added parent company information: "A subsidiary of Al Noor International Consultants" with website link

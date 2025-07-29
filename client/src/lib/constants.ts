@@ -12,6 +12,10 @@ export const ISO_STANDARDS = [
       'Better operational efficiency',
       'Enhanced credibility',
       'Reduced waste and costs'
+    ],
+    specializedTrainings: [
+      'Root Cause Analysis & Corrective Action',
+      'Process Mapping & Process-Based Thinking'
     ]
   },
   {
@@ -27,6 +31,9 @@ export const ISO_STANDARDS = [
       'Compliance with regulations',
       'Cost savings through efficiency',
       'Enhanced reputation'
+    ],
+    specializedTrainings: [
+      'Environmental Aspect and Impact Assessment'
     ]
   },
   {
@@ -42,6 +49,12 @@ export const ISO_STANDARDS = [
       'Lower insurance costs',
       'Improved employee morale',
       'Legal compliance'
+    ],
+    specializedTrainings: [
+      'Hazard Identification and Risk Assessment (HIRA)',
+      'Fire Saftey and Fire Fighting Techniques',
+      'Behavior‑Based Safety (BBS)',
+      'Emergency Preparedness and Response'
     ]
   },
   {
@@ -57,6 +70,12 @@ export const ISO_STANDARDS = [
       'Reduced security incidents',
       'Competitive advantage',
       'Regulatory compliance'
+    ],
+    specializedTrainings: [
+      'Information Security Risk Assessment & Treatment',
+      'Cybersecurity Fundamentals for Staff',
+      'Personal Identifiable Information (PII) Protection',
+      'Cloud Security Awareness'
     ]
   },
   {
@@ -72,6 +91,11 @@ export const ISO_STANDARDS = [
       'Reduced downtime costs',
       'Enhanced reputation',
       'Stakeholder confidence'
+    ],
+    specializedTrainings: [
+      'Business Impact Analysis (BIA) Training',
+      'Risk Assessment & Continuity Strategy Development',
+      'Developing and Testing Business Continuity Plans (BCP)'
     ]
   },
   {
@@ -87,6 +111,9 @@ export const ISO_STANDARDS = [
       'Better customer satisfaction',
       'Reduced IT costs',
       'Enhanced efficiency'
+    ],
+    specializedTrainings: [
+      'Service Desk and Incident Management'
     ]
   },
   {
@@ -102,6 +129,11 @@ export const ISO_STANDARDS = [
       'Reduced contamination risks',
       'Market access',
       'Consumer confidence'
+    ],
+    specializedTrainings: [
+      'Hazard Analysis and Critical Control Points (HACCP)',
+      'PRP (Pre-Requisite Programs) and GHP (Good Hygiene Practices)',
+      'Food Safety Culture and Behavior Training'
     ]
   },
   {
@@ -117,6 +149,11 @@ export const ISO_STANDARDS = [
       'International recognition',
       'Improved quality of results',
       'Market access and compliance'
+    ],
+    specializedTrainings: [
+      'Measurement Uncertainty and Statistical Analysis',
+      'Test Method Validation and Verification',
+      'Sampling Techniques and Handling Procedures'
     ]
   }
 ];

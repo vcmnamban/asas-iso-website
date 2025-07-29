@@ -221,6 +221,27 @@ export default function ISOCourses() {
                           ))}
                         </div>
                       </div>
+                      
+                      {(standard as any).specializedTrainings && (
+                        <div>
+                          <h4 className="font-medium text-sm mb-2">
+                            {isRTL ? 'دورات متخصصة:' : 'Specialized Trainings:'}
+                          </h4>
+                          <div className="space-y-1">
+                            {(standard as any).specializedTrainings.slice(0, 2).map((training: string) => (
+                              <div key={training} className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span className="text-xs text-muted-foreground leading-tight">{training}</span>
+                              </div>
+                            ))}
+                            {(standard as any).specializedTrainings.length > 2 && (
+                              <div className="text-xs text-primary font-medium">
+                                +{(standard as any).specializedTrainings.length - 2} {isRTL ? 'المزيد' : 'more'}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="space-y-2">
