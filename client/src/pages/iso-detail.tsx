@@ -158,42 +158,43 @@ export default function ISODetail() {
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'مستويات التدريب' : 'Training Levels'}
                 </h4>
-                <div className="space-y-4 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   {TRAINING_LEVELS.map((level, index) => (
-                    <div key={level.id} className="flex items-start gap-4 p-4 bg-secondary/10 rounded-lg">
-                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-1">
-                          <h5 className="font-semibold">{level.name}</h5>
-                          <Badge variant="outline" className="text-xs">
+                    <Card key={level.id} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
+                            {index + 1}
+                          </div>
+                          <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
                             <Clock className="w-3 h-3 mr-1" />
                             {level.duration}
                           </Badge>
                         </div>
-                        <p className="text-sm text-muted-foreground mb-1">{level.description}</p>
-                        <p className="text-xs text-primary font-medium mb-3">
-                          <Users className="w-3 h-3 inline mr-1" />
-                          {level.target}
-                        </p>
+                        <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors">{level.name}</h5>
+                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{level.description}</p>
+                        <div className="flex items-center gap-2 mb-4">
+                          <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                          <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{level.target}</span>
+                        </div>
                         <Link href="/contact">
-                          <Button variant="outline" size="sm" className="w-full">
+                          <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                             {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                           </Button>
                         </Link>
-                      </div>
-                    </div>
+                      </CardContent>
+                    </Card>
                   ))}
                   
                   {(standard as any).specializedTrainings && (
                     <>
-                      <div className="mt-6 mb-2">
+                      <div className="mt-8 mb-4">
                         <h5 className="text-lg font-semibold text-primary">
                           {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
                         </h5>
                       </div>
-                      {(standard as any).specializedTrainings.map((training: string, index: number) => {
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {(standard as any).specializedTrainings.map((training: string, index: number) => {
                         // Define specialized training details based on the training name
                         const getTrainingDetails = (trainingName: string) => {
                           // Common training details for different types
@@ -286,32 +287,33 @@ export default function ISODetail() {
                         const details = getTrainingDetails(training);
 
                         return (
-                          <div key={index} className="flex items-start gap-4 p-4 bg-secondary/10 rounded-lg">
-                            <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
-                              {TRAINING_LEVELS.length + index + 1}
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-1">
-                                <h5 className="font-semibold">{training}</h5>
-                                <Badge variant="outline" className="text-xs">
+                          <Card key={index} className="bg-white border-border hover:border-primary hover:shadow-lg transition-all duration-300 group">
+                            <CardContent className="p-6">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-primary/90 transition-colors">
+                                  {TRAINING_LEVELS.length + index + 1}
+                                </div>
+                                <Badge variant="outline" className="text-xs group-hover:border-primary group-hover:text-primary transition-colors">
                                   <Clock className="w-3 h-3 mr-1" />
                                   {details.duration}
                                 </Badge>
                               </div>
-                              <p className="text-sm text-muted-foreground mb-1">{details.description}</p>
-                              <p className="text-xs text-primary font-medium mb-3">
-                                <Users className="w-3 h-3 inline mr-1" />
-                                {details.target}
-                              </p>
+                              <h5 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors">{training}</h5>
+                              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{details.description}</p>
+                              <div className="flex items-center gap-2 mb-4">
+                                <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">{details.target}</span>
+                              </div>
                               <Link href="/contact">
-                                <Button variant="outline" size="sm" className="w-full">
+                                <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary hover:bg-primary hover:text-primary-foreground transition-all">
                                   {isRTL ? 'استفسر عن هذه الدورة' : 'Inquire About This Course'}
                                 </Button>
                               </Link>
-                            </div>
-                          </div>
+                            </CardContent>
+                          </Card>
                         );
-                      })}
+                        })}
+                      </div>
                     </>
                   )}
                 </div>
