@@ -37,6 +37,23 @@ export const chatMessages = pgTable("chat_messages", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const quoteRequests = pgTable("quote_requests", {
+  id: serial("id").primaryKey(),
+  companyName: text("company_name").notNull(),
+  contactPerson: text("contact_person").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  industry: text("industry").notNull(),
+  companySize: text("company_size").notNull(),
+  country: text("country").notNull(),
+  trainingType: text("training_type").notNull(),
+  isoStandards: text("iso_standards").array().notNull(),
+  participants: text("participants").notNull(),
+  preferredDates: text("preferred_dates").default(''),
+  additionalRequirements: text("additional_requirements").default(''),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).omit({
   id: true,
   createdAt: true,
@@ -52,9 +69,16 @@ export const insertChatMessageSchema = createInsertSchema(chatMessages).omit({
   createdAt: true,
 });
 
+export const insertQuoteRequestSchema = createInsertSchema(quoteRequests).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 export type InsertContactSubmission = z.infer<typeof insertContactSubmissionSchema>;
 export type ConsultationRequest = typeof consultationRequests.$inferSelect;
 export type InsertConsultationRequest = z.infer<typeof insertConsultationRequestSchema>;
 export type ChatMessage = typeof chatMessages.$inferSelect;
 export type InsertChatMessage = z.infer<typeof insertChatMessageSchema>;
+export type QuoteRequest = typeof quoteRequests.$inferSelect;
+export type InsertQuoteRequest = z.infer<typeof insertQuoteRequestSchema>;

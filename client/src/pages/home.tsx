@@ -87,10 +87,12 @@ export default function Home() {
                 <GraduationCap className="mr-2 w-5 h-5" />
                 {t('viewCourses')}
               </Button>
-              <Button onClick={() => scrollToSection('contact')} variant="secondary" className="btn-secondary">
-                <Calculator className="mr-2 w-5 h-5" />
-                {t('requestQuote')}
-              </Button>
+              <Link href="/quote">
+                <Button variant="secondary" className="btn-secondary">
+                  <Calculator className="mr-2 w-5 h-5" />
+                  {t('requestQuote')}
+                </Button>
+              </Link>
               <Button onClick={() => scrollToSection('consultation')} variant="secondary" className="btn-secondary">
                 <Calendar className="mr-2 w-5 h-5" />
                 {t('scheduleConsultation')}

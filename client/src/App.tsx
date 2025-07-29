@@ -17,6 +17,7 @@ import TrainingServices from "@/pages/training-services";
 import Blog from "@/pages/blog";
 import Contact from "@/pages/contact";
 import Consultation from "@/pages/consultation";
+import Quote from "@/pages/quote";
 
 function Router() {
   return (
@@ -33,6 +34,7 @@ function Router() {
           <Route path="/blog/:id" component={Blog} />
           <Route path="/contact" component={Contact} />
           <Route path="/consultation" component={Consultation} />
+          <Route path="/quote" component={Quote} />
           <Route component={NotFound} />
         </Switch>
       </main>

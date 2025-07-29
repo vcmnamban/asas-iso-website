@@ -2,12 +2,15 @@ import {
   contactSubmissions, 
   consultationRequests, 
   chatMessages,
+  quoteRequests,
   type ContactSubmission,
   type InsertContactSubmission,
   type ConsultationRequest,
   type InsertConsultationRequest,
   type ChatMessage,
-  type InsertChatMessage
+  type InsertChatMessage,
+  type QuoteRequest,
+  type InsertQuoteRequest
 } from "@shared/schema";
 
 export interface IStorage {
@@ -19,6 +22,10 @@ export interface IStorage {
   createConsultationRequest(request: InsertConsultationRequest): Promise<ConsultationRequest>;
   getConsultationRequests(): Promise<ConsultationRequest[]>;
   
+  // Quote requests
+  createQuoteRequest(request: InsertQuoteRequest): Promise<QuoteRequest>;
+  getQuoteRequests(): Promise<QuoteRequest[]>;
+  
   // Chat messages
   createChatMessage(message: InsertChatMessage): Promise<ChatMessage>;
   getChatMessages(sessionId: string): Promise<ChatMessage[]>;
@@ -27,17 +34,21 @@ export interface IStorage {
 export class MemStorage implements IStorage {
   private contactSubmissions: Map<number, ContactSubmission>;
   private consultationRequests: Map<number, ConsultationRequest>;
+  private quoteRequests: Map<number, QuoteRequest>;
   private chatMessages: Map<number, ChatMessage>;
   private currentContactId: number;
   private currentConsultationId: number;
+  private currentQuoteId: number;
   private currentChatId: number;
 
   constructor() {
     this.contactSubmissions = new Map();
     this.consultationRequests = new Map();
+    this.quoteRequests = new Map();
     this.chatMessages = new Map();
     this.currentContactId = 1;
     this.currentConsultationId = 1;
+    this.currentQuoteId = 1;
     this.currentChatId = 1;
   }
 
@@ -82,6 +93,32 @@ export class MemStorage implements IStorage {
 
   async getConsultationRequests(): Promise<ConsultationRequest[]> {
     return Array.from(this.consultationRequests.values());
+  }
+
+  async createQuoteRequest(insertRequest: InsertQuoteRequest): Promise<QuoteRequest> {
+    const id = this.currentQuoteId++;
+    const request: QuoteRequest = {
+      id,
+      companyName: insertRequest.companyName,
+      contactPerson: insertRequest.contactPerson,
+      email: insertRequest.email,
+      phone: insertRequest.phone,
+      industry: insertRequest.industry,
+      companySize: insertRequest.companySize,
+      country: insertRequest.country,
+      trainingType: insertRequest.trainingType,
+      isoStandards: insertRequest.isoStandards,
+      participants: insertRequest.participants,
+      preferredDates: insertRequest.preferredDates || '',
+      additionalRequirements: insertRequest.additionalRequirements || '',
+      createdAt: new Date(),
+    };
+    this.quoteRequests.set(id, request);
+    return request;
+  }
+
+  async getQuoteRequests(): Promise<QuoteRequest[]> {
+    return Array.from(this.quoteRequests.values());
   }
 
   async createChatMessage(insertMessage: InsertChatMessage): Promise<ChatMessage> {

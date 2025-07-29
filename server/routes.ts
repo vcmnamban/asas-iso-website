@@ -4,7 +4,8 @@ import { storage } from "./storage";
 import { 
   insertContactSubmissionSchema, 
   insertConsultationRequestSchema, 
-  insertChatMessageSchema 
+  insertChatMessageSchema,
+  insertQuoteRequestSchema
 } from "@shared/schema";
 import { z } from "zod";
 
@@ -35,6 +36,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         res.status(400).json({ error: "Invalid form data", details: error.errors });
       } else {
         res.status(500).json({ error: "Failed to submit consultation request" });
+      }
+    }
+  });
+
+  // Quote request submission
+  app.post("/api/quotes", async (req, res) => {
+    try {
+      const validatedData = insertQuoteRequestSchema.parse(req.body);
+      const request = await storage.createQuoteRequest(validatedData);
+      res.json({ success: true, id: request.id });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ error: "Invalid form data", details: error.errors });
+      } else {
+        res.status(500).json({ error: "Failed to submit quote request" });
       }
     }
   });
