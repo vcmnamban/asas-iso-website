@@ -10,7 +10,7 @@ export const translations = {
     
     // Hero Section
     heroTitle: 'Asas ISO: The Foundation for Your Certification Success',
-    heroSubtitle: 'Proudly based in Kuwait, serving businesses across the GCC',
+    heroSubtitle: 'Your trusted partner for ISO trainings across the GCC',
     viewCourses: 'View Our Courses',
     requestQuote: 'Request a Quote',
     scheduleConsultation: 'Schedule a Consultation',
@@ -50,7 +50,7 @@ export const translations = {
     
     // Hero Section
     heroTitle: 'أساس أيزو: الأساس لنجاح شهادتك',
-    heroSubtitle: 'مقرها في الكويت بفخر، نخدم الشركات في جميع أنحاء دول مجلس التعاون الخليجي',
+    heroSubtitle: 'شريكك الموثوق للتدريب على الأيزو في جميع أنحاء دول مجلس التعاون الخليجي',
     viewCourses: 'اعرض دوراتنا',
     requestQuote: 'اطلب عرض أسعار',
     scheduleConsultation: 'حدد موعد استشارة',
