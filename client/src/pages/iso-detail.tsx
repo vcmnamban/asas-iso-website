@@ -130,6 +130,57 @@ export default function ISODetail() {
                 <p className="text-lg text-muted-foreground mb-6">
                   {standard.description}
                 </p>
+
+                <h4 className="text-xl font-semibold mb-4">
+                  {isRTL ? 'طرق التدريب المتاحة' : 'Available Training Methods'}
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                  <div className="p-4 border border-border rounded-lg">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Building className="w-5 h-5 text-primary" />
+                      <h5 className="font-semibold">{isRTL ? 'التدريب الداخلي' : 'In-house Training'}</h5>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {isRTL ? 'تدريب مخصص في موقع عملك مع محتوى مصمم خصيصاً لاحتياجاتك' : 'Customized training at your location with content tailored to your specific needs'}
+                    </p>
+                  </div>
+                  <div className="p-4 border border-border rounded-lg">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Server className="w-5 h-5 text-primary" />
+                      <h5 className="font-semibold">{isRTL ? 'التدريب الإلكتروني' : 'Online Training'}</h5>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {isRTL ? 'تدريب تفاعلي عبر الإنترنت مع جلسات مباشرة ومواد تعليمية شاملة' : 'Interactive online training with live sessions and comprehensive learning materials'}
+                    </p>
+                  </div>
+                </div>
+
+                <h4 className="text-xl font-semibold mb-4">
+                  {isRTL ? 'مستويات التدريب' : 'Training Levels'}
+                </h4>
+                <div className="space-y-4 mb-8">
+                  {TRAINING_LEVELS.map((level, index) => (
+                    <div key={level.id} className="flex items-start gap-4 p-4 bg-secondary/10 rounded-lg">
+                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-1">
+                          <h5 className="font-semibold">{level.name}</h5>
+                          <Badge variant="outline" className="text-xs">
+                            <Clock className="w-3 h-3 mr-1" />
+                            {level.duration}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-1">{level.description}</p>
+                        <p className="text-xs text-primary font-medium">
+                          <Users className="w-3 h-3 inline mr-1" />
+                          {level.target}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
                 
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'الفوائد الرئيسية' : 'Key Benefits'}
@@ -196,7 +247,7 @@ export default function ISODetail() {
                           {isRTL ? 'طرق التسليم' : 'Delivery Methods'}
                         </div>
                         <div className="text-sm text-muted-foreground">
-                          {isRTL ? 'داخلي، عام، أونلاين' : 'In-house, Public, Online'}
+                          {isRTL ? 'داخلي، أونلاين' : 'In-house, Online'}
                         </div>
                       </div>
                     </div>
