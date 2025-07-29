@@ -180,6 +180,29 @@ export default function ISODetail() {
                       </div>
                     </div>
                   ))}
+                  
+                  {(standard as any).specializedTrainings && (
+                    <>
+                      <div className="mt-6 mb-2">
+                        <h5 className="text-lg font-semibold text-primary">
+                          {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
+                        </h5>
+                      </div>
+                      {(standard as any).specializedTrainings.map((training: string, index: number) => (
+                        <div key={index} className="flex items-start gap-4 p-4 bg-secondary/10 rounded-lg">
+                          <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
+                            {TRAINING_LEVELS.length + index + 1}
+                          </div>
+                          <div className="flex-1">
+                            <h5 className="font-semibold mb-1">{training}</h5>
+                            <p className="text-sm text-muted-foreground">
+                              {isRTL ? 'دورة متخصصة مصممة لتعميق الفهم في هذا المجال المحدد' : 'Specialized course designed to deepen understanding in this specific area'}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </>
+                  )}
                 </div>
                 
                 <h4 className="text-xl font-semibold mb-4">
@@ -193,22 +216,6 @@ export default function ISODetail() {
                     </div>
                   ))}
                 </div>
-
-                {(standard as any).specializedTrainings && (
-                  <>
-                    <h4 className="text-xl font-semibold mb-4">
-                      {isRTL ? 'الدورات المتخصصة' : 'Specialized Training Courses'}
-                    </h4>
-                    <div className="grid grid-cols-1 gap-3 mb-8">
-                      {(standard as any).specializedTrainings.map((training: string, index: number) => (
-                        <div key={index} className="flex items-start gap-3 p-3 bg-secondary/20 rounded-lg">
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-muted-foreground font-medium">{training}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
 
                 <h4 className="text-xl font-semibold mb-4">
                   {isRTL ? 'الصناعات المستهدفة' : 'Target Industries'}
