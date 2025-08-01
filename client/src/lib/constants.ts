@@ -200,7 +200,7 @@ export const COMPANY_INFO = {
   parentWebsite: 'https://alnoor-consultants.com/',
   address: '5th Floor, Panasonic Tower, Qibla, Kuwait City',
   phone: '+965 69668726',
-  email: 'info@asasiso.com',
+  email: 'support@asasiso.com',
   linkedin: 'linkedin.com/company/asas-iso',
   website: 'www.asasiso.com'
 };
