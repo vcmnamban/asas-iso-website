@@ -498,7 +498,7 @@ export default function Consultation() {
                 </CardContent>
               </Card>
 
-              {/* Calendly Integration Placeholder */}
+              {/* Google Calendar Integration */}
               <Card className="border-border">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">
@@ -507,11 +507,32 @@ export default function Consultation() {
                   <div className="bg-muted rounded-xl p-8 text-center">
                     <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
                     <p className="text-muted-foreground mb-4">
-                      {isRTL ? 'تكامل Calendly للحجز المباشر' : 'Calendly Integration for Direct Booking'}
+                      {isRTL ? 'احجز استشارة مجانية مباشرة في تقويمك' : 'Book a free consultation directly in your calendar'}
                     </p>
-                    <Button variant="outline">
-                      {isRTL ? 'اختر وقتاً مناسباً' : 'Pick a Convenient Time'}
+                    <Button 
+                      variant="default"
+                      onClick={() => {
+                        const startDate = new Date();
+                        startDate.setDate(startDate.getDate() + 1); // Tomorrow
+                        startDate.setHours(10, 0, 0, 0); // 10:00 AM
+                        
+                        const endDate = new Date(startDate);
+                        endDate.setMinutes(45); // 45-minute consultation
+                        
+                        const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Free ISO Consultation - Asas ISO')}&dates=${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=${encodeURIComponent('Free consultation with Asas ISO expert to discuss your organization\'s ISO training needs and certification requirements.\n\nWhat to expect:\n• Needs assessment\n• Customized training recommendations\n• Transparent pricing\n• Q&A session\n\nContact: support@asasiso.com\nPhone: +965 69668726')}&location=${encodeURIComponent('Online Meeting (Link will be provided)')}&sf=true&output=xml`;
+                        
+                        window.open(googleCalendarUrl, '_blank');
+                      }}
+                      className="w-full"
+                    >
+                      {isRTL ? 'أضف إلى تقويم Google' : 'Add to Google Calendar'}
                     </Button>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      {isRTL 
+                        ? 'سيتم إرسال رابط الاجتماع إليك عبر البريد الإلكتروني قبل الموعد'
+                        : 'Meeting link will be sent to you via email before the appointment'
+                      }
+                    </p>
                   </div>
                 </CardContent>
               </Card>

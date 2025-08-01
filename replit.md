@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- August 01, 2025. Replaced Calendly integration with Google Calendar direct booking system on consultation page
 - August 01, 2025. Updated company email address to support@asasiso.com across all pages and contact forms
 - August 01, 2025. Updated footer copyright to 2025 and removed "Registered in Kuwait" text
 - July 29, 2025. Simplified training type options in quote form to only "In-House Training" and "Online Training" (removed Hybrid and Consultation Only)
