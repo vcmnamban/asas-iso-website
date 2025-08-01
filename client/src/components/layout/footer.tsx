@@ -95,7 +95,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 {t('companyName')}. {isRTL ? 'جميع الحقوق محفوظة. مسجلة في الكويت.' : 'All rights reserved. Registered in Kuwait.'}
+            © 2025 {t('companyName')}. {isRTL ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
           </p>
         </div>
       </div>
