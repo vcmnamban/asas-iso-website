@@ -129,8 +129,8 @@ export default function Consultation() {
       step: 2,
       title: isRTL ? 'مكالمة الاستشارة' : 'Consultation Call',
       description: isRTL 
-        ? 'جلسة مدتها 30-45 دقيقة مع خبير أساس أيزو'
-        : '30-45 minute session with an Asas ISO expert'
+        ? 'جلسة مدتها 30 دقيقة مع خبير أساس أيزو'
+        : '30-minute session with an Asas ISO expert'
     },
     {
       step: 3,
