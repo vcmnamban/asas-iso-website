@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
@@ -25,60 +25,6 @@ declare global {
 
 export default function Consultation() {
   const { t, isRTL } = useLanguage();
-
-  // Initialize Cal.com embed with direct iframe approach
-  useEffect(() => {
-    const embedContainer = document.getElementById('my-cal-inline-30min');
-    if (embedContainer && !embedContainer.innerHTML) {
-      // Create iframe for more reliable embedding
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
-      iframe.width = '100%';
-      iframe.height = '650';
-      iframe.frameBorder = '0';
-      iframe.title = 'Asas ISO Consultation Booking';
-      iframe.style.border = 'none';
-      iframe.style.borderRadius = '8px';
-      iframe.allow = 'camera; microphone; geolocation';
-      
-      embedContainer.appendChild(iframe);
-
-      // Try to inject custom styles into the iframe when it loads
-      iframe.onload = () => {
-        try {
-          const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-          if (iframeDoc) {
-            const style = iframeDoc.createElement('style');
-            style.textContent = `
-              [data-testid="time-slots"],
-              .available-times,
-              .time-slots-container {
-                display: grid !important;
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
-                gap: 8px !important;
-                max-height: 300px !important;
-                overflow-y: auto !important;
-              }
-              
-              [data-testid="time-slot"],
-              .time-slot,
-              button[aria-label*="time"] {
-                width: auto !important;
-                min-height: 36px !important;
-                margin: 0 !important;
-                font-size: 13px !important;
-                padding: 6px 10px !important;
-              }
-            `;
-            iframeDoc.head.appendChild(style);
-          }
-        } catch (e) {
-          // Cross-origin restrictions prevent style injection
-          console.log('Unable to inject styles into Cal.com iframe due to CORS');
-        }
-      };
-    }
-  }, []);
 
   const consultationBenefits = [
     {
@@ -176,23 +122,32 @@ export default function Consultation() {
               </p>
             </div>
 
-            {/* Cal.com Integration - Full Width */}
+            {/* Cal.com Integration - Compact Button Approach */}
             <div className="mb-8">
               <Card className="border-border">
-                <CardContent className="p-8">
-                  <div className="cal-embed-container cal-custom-layout" style={{ minHeight: '650px', borderRadius: '8px', overflow: 'visible' }}>
-                    <div style={{width:'100%',height:'650px'}} id="my-cal-inline-30min"></div>
-                  </div>
-                  
-                  {/* Fallback Button */}
-                  <div className="text-center mt-6">
+                <CardContent className="p-12 text-center">
+                  <div className="max-w-md mx-auto">
+                    <Calendar className="w-16 h-16 text-primary mx-auto mb-6" />
+                    <h3 className="text-2xl font-semibold mb-4">
+                      {isRTL ? 'اختر وقت الاستشارة' : 'Select Your Consultation Time'}
+                    </h3>
+                    <p className="text-muted-foreground mb-8">
+                      {isRTL 
+                        ? 'انقر أدناه لفتح تقويم الحجز واختيار الوقت المناسب لك'
+                        : 'Click below to open our booking calendar and choose your preferred time'
+                      }
+                    </p>
                     <Button 
-                      variant="outline"
                       onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
-                      className="px-8 py-3"
+                      className="btn-primary text-lg px-12 py-4"
+                      size="lg"
                     >
-                      {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
+                      <Calendar className="mr-3 w-6 h-6" />
+                      {isRTL ? 'احجز استشارتك الآن' : 'Book Your Consultation Now'}
                     </Button>
+                    <p className="text-sm text-muted-foreground mt-4">
+                      {isRTL ? 'سيفتح في نافذة جديدة' : 'Opens in a new window'}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
