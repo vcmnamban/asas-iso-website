@@ -34,7 +34,7 @@ export default function Consultation() {
       const iframe = document.createElement('iframe');
       iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
       iframe.width = '100%';
-      iframe.height = '280';
+      iframe.height = '450';
       iframe.frameBorder = '0';
       iframe.title = 'Asas ISO Consultation Booking';
       iframe.style.border = 'none';
@@ -145,8 +145,8 @@ export default function Consultation() {
             <div className="mb-8">
               <Card className="border-border">
                 <CardContent className="p-8">
-                  <div className="cal-embed-container" style={{ height: '280px', borderRadius: '8px', overflow: 'hidden' }}>
-                    <div style={{width:'100%',height:'280px'}} id="my-cal-inline-30min"></div>
+                  <div className="cal-embed-container" style={{ height: '320px', borderRadius: '8px', overflow: 'hidden' }}>
+                    <div style={{width:'100%',height:'450px'}} id="my-cal-inline-30min"></div>
                   </div>
                   
                   {/* Fallback Button */}
