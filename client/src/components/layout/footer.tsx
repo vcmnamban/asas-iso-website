@@ -9,21 +9,21 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-secondary-foreground">
-      <div className="container-max section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container-max py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img src={logoPath} alt="Asas ISO" className="w-8 h-8" />
               <span className="text-2xl font-bold text-gradient">{t('companyName')}</span>
             </div>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-muted-foreground mb-3 leading-relaxed">
               {isRTL 
                 ? 'الأساس لنجاح شهادتك. شركة تدريب أيزو مهنية مقرها في الكويت، تخدم منطقة دول مجلس التعاون الخليجي.'
                 : 'The foundation for your certification success. Professional ISO training company based in Kuwait, serving the GCC region.'
               }
             </p>
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-sm text-muted-foreground mb-4">
               {isRTL 
                 ? 'شركة تابعة لشركة النور الدولية للاستشارات'
                 : 'A subsidiary of '
@@ -52,7 +52,7 @@ export function Footer() {
 
           {/* ISO Training Standards */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">{t('services')}</h4>
+            <h4 className="text-lg font-semibold mb-3">{t('services')}</h4>
             <ul className="space-y-2">
               {ISO_STANDARDS.slice(0, 7).map((standard) => (
                 <li key={standard.id}>
@@ -69,8 +69,8 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">{t('contact')}</h4>
-            <div className="space-y-3">
+            <h4 className="text-lg font-semibold mb-3">{t('contact')}</h4>
+            <div className="space-y-2">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-1 text-muted-foreground" />
                 <div className="text-sm text-muted-foreground">
