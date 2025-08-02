@@ -122,31 +122,53 @@ export default function Consultation() {
               </p>
             </div>
 
-            {/* Cal.com Integration - Compact Button Approach */}
+            {/* Cal.com Integration - Optimized Approach */}
             <div className="mb-8">
               <Card className="border-border">
-                <CardContent className="p-12 text-center">
-                  <div className="max-w-md mx-auto">
-                    <Calendar className="w-16 h-16 text-primary mx-auto mb-6" />
-                    <h3 className="text-2xl font-semibold mb-4">
-                      {isRTL ? 'اختر وقت الاستشارة' : 'Select Your Consultation Time'}
+                <CardContent className="p-8 text-center">
+                  <div className="max-w-lg mx-auto">
+                    <Calendar className="w-20 h-20 text-primary mx-auto mb-6" />
+                    <h3 className="text-3xl font-bold mb-4">
+                      {isRTL ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation'}
                     </h3>
-                    <p className="text-muted-foreground mb-8">
+                    <p className="text-lg text-muted-foreground mb-6">
                       {isRTL 
-                        ? 'انقر أدناه لفتح تقويم الحجز واختيار الوقت المناسب لك'
-                        : 'Click below to open our booking calendar and choose your preferred time'
+                        ? 'استشارة مدتها 30 دقيقة مع خبير أساس أيزو لتقييم احتياجات مؤسستك'
+                        : '30-minute consultation with an Asas ISO expert to assess your organization\'s needs'
                       }
                     </p>
+                    
+                    {/* Key Benefits */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <span className="text-sm">{isRTL ? 'مجاني تماماً' : 'Completely Free'}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <span className="text-sm">{isRTL ? '30 دقيقة' : '30 Minutes'}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <span className="text-sm">{isRTL ? 'عبر جوجل ميت' : 'Via Google Meet'}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <span className="text-sm">{isRTL ? 'خبير معتمد' : 'Certified Expert'}</span>
+                      </div>
+                    </div>
+
                     <Button 
                       onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
-                      className="btn-primary text-lg px-12 py-4"
+                      className="btn-primary text-xl px-16 py-6 mb-4"
                       size="lg"
                     >
-                      <Calendar className="mr-3 w-6 h-6" />
-                      {isRTL ? 'احجز استشارتك الآن' : 'Book Your Consultation Now'}
+                      <Calendar className="mr-4 w-7 h-7" />
+                      {isRTL ? 'اختر وقت الاستشارة' : 'Choose Your Time'}
                     </Button>
-                    <p className="text-sm text-muted-foreground mt-4">
-                      {isRTL ? 'سيفتح في نافذة جديدة' : 'Opens in a new window'}
+                    
+                    <p className="text-sm text-muted-foreground">
+                      {isRTL ? 'سيفتح تقويم الحجز في نافذة جديدة' : 'Opens booking calendar in a new window'}
                     </p>
                   </div>
                 </CardContent>
