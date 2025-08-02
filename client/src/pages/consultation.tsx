@@ -32,7 +32,7 @@ export default function Consultation() {
     if (embedContainer && !embedContainer.innerHTML) {
       // Create iframe for more reliable embedding
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
+      iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light&hideEventTypeDetails=false';
       iframe.width = '100%';
       iframe.height = '450';
       iframe.frameBorder = '0';
@@ -145,7 +145,7 @@ export default function Consultation() {
             <div className="mb-8">
               <Card className="border-border">
                 <CardContent className="p-8">
-                  <div className="cal-embed-container" style={{ height: '320px', borderRadius: '8px', overflow: 'hidden' }}>
+                  <div className="cal-embed-container" style={{ height: '450px', borderRadius: '8px', overflow: 'hidden' }}>
                     <div style={{width:'100%',height:'450px'}} id="my-cal-inline-30min"></div>
                   </div>
                   
