@@ -498,41 +498,43 @@ export default function Consultation() {
                 </CardContent>
               </Card>
 
-              {/* Google Calendar Integration */}
+              {/* Cal.com Integration */}
               <Card className="border-border">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">
                     {isRTL ? 'أو احجز مباشرة' : 'Or Book Directly'}
                   </h3>
-                  <div className="bg-muted rounded-xl p-8 text-center">
-                    <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground mb-4">
-                      {isRTL ? 'احجز استشارة مجانية مباشرة في تقويمك' : 'Book a free consultation directly in your calendar'}
-                    </p>
-                    <Button 
-                      variant="default"
-                      onClick={() => {
-                        const startDate = new Date();
-                        startDate.setDate(startDate.getDate() + 1); // Tomorrow
-                        startDate.setHours(10, 0, 0, 0); // 10:00 AM
-                        
-                        const endDate = new Date(startDate);
-                        endDate.setMinutes(45); // 45-minute consultation
-                        
-                        const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Free ISO Consultation - Asas ISO')}&dates=${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=${encodeURIComponent('Free consultation with Asas ISO expert to discuss your organization\'s ISO training needs and certification requirements.\n\nWhat to expect:\n• Needs assessment\n• Customized training recommendations\n• Transparent pricing\n• Q&A session\n\nContact: support@asasiso.com\nPhone: +965 69668726')}&location=${encodeURIComponent('Online Meeting (Link will be provided)')}&sf=true&output=xml`;
-                        
-                        window.open(googleCalendarUrl, '_blank');
-                      }}
-                      className="w-full"
-                    >
-                      {isRTL ? 'أضف إلى تقويم Google' : 'Add to Google Calendar'}
-                    </Button>
-                    <p className="text-xs text-muted-foreground mt-3">
-                      {isRTL 
-                        ? 'سيتم إرسال رابط الاجتماع إليك عبر البريد الإلكتروني قبل الموعد'
-                        : 'Meeting link will be sent to you via email before the appointment'
-                      }
-                    </p>
+                  <div className="bg-muted rounded-xl p-8">
+                    <div className="text-center mb-6">
+                      <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+                      <p className="text-muted-foreground mb-4">
+                        {isRTL ? 'احجز استشارة مجانية في الوقت المناسب لك' : 'Book a free consultation at your convenience'}
+                      </p>
+                    </div>
+                    
+                    {/* Cal.com Embed */}
+                    <div className="cal-embed-container">
+                      <iframe
+                        src="https://cal.com/asasiso/consultation?embed=true"
+                        width="100%"
+                        height="500"
+                        frameBorder="0"
+                        title={isRTL ? 'حجز استشارة أساس أيزو' : 'Asas ISO Consultation Booking'}
+                        className="rounded-lg border-0"
+                        style={{ minHeight: '500px' }}
+                      />
+                    </div>
+                    
+                    {/* Fallback Button */}
+                    <div className="text-center mt-4">
+                      <Button 
+                        variant="outline"
+                        onClick={() => window.open('https://cal.com/asasiso/consultation', '_blank')}
+                        className="w-full"
+                      >
+                        {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
