@@ -34,7 +34,7 @@ export default function Consultation() {
       const iframe = document.createElement('iframe');
       iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
       iframe.width = '100%';
-      iframe.height = '600';
+      iframe.height = '800';
       iframe.frameBorder = '0';
       iframe.title = 'Asas ISO Consultation Booking';
       iframe.style.border = 'none';
@@ -141,95 +141,92 @@ export default function Consultation() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Cal.com Integration - Takes 2 columns */}
-              <div className="lg:col-span-2">
-                <Card className="border-border">
-                  <CardContent className="p-6">
-                    <div className="cal-embed-container" style={{ minHeight: '600px', borderRadius: '8px', overflow: 'hidden' }}>
-                      <div style={{width:'100%',height:'600px'}} id="my-cal-inline-30min"></div>
-                    </div>
-                    
-                    {/* Fallback Button */}
-                    <div className="text-center mt-4">
-                      <Button 
-                        variant="outline"
-                        onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
-                        className="w-full"
-                      >
-                        {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+            {/* Cal.com Integration - Full Width */}
+            <div className="mb-8">
+              <Card className="border-border">
+                <CardContent className="p-8">
+                  <div className="cal-embed-container" style={{ minHeight: '800px', borderRadius: '8px', overflow: 'visible' }}>
+                    <div style={{width:'100%',height:'800px'}} id="my-cal-inline-30min"></div>
+                  </div>
+                  
+                  {/* Fallback Button */}
+                  <div className="text-center mt-6">
+                    <Button 
+                      variant="outline"
+                      onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
+                      className="px-8 py-3"
+                    >
+                      {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-              {/* Why Choose Us - Takes 1 column */}
-              <div>
-                <Card className="border-border h-fit">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">
-                      {isRTL ? 'لماذا تختار أساس أيزو؟' : 'Why Choose Asas ISO?'}
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                        <span className="text-sm">
-                          {isRTL ? 'مدربون معتمدون دولياً مع خبرة في المنطقة' : 'Internationally certified trainers with regional expertise'}
-                        </span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                        <span className="text-sm">
-                          {isRTL ? 'برامج تدريب مخصصة للصناعات الإقليمية' : 'Training programs customized for regional industries'}
-                        </span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                        <span className="text-sm">
-                          {isRTL ? 'خيارات تسليم مرنة (داخلي وأونلاين)' : 'Flexible delivery options (in-house and online)'}
-                        </span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                        <span className="text-sm">
-                          {isRTL ? 'نهج عملي يركز على النتائج' : 'Practical, results-oriented approach'}
-                        </span>
-                      </div>
+            {/* Why Choose Us & Contact Info - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card className="border-border">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-semibold mb-6 text-center">
+                    {isRTL ? 'لماذا تختار أساس أيزو؟' : 'Why Choose Asas ISO?'}
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-base">
+                        {isRTL ? 'مدربون معتمدون دولياً مع خبرة في المنطقة' : 'Internationally certified trainers with regional expertise'}
+                      </span>
                     </div>
-                  </CardContent>
-                </Card>
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-base">
+                        {isRTL ? 'برامج تدريب مخصصة للصناعات الإقليمية' : 'Training programs customized for regional industries'}
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-base">
+                        {isRTL ? 'خيارات تسليم مرنة (داخلي وأونلاين)' : 'Flexible delivery options (in-house and online)'}
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-base">
+                        {isRTL ? 'نهج عملي يركز على النتائج' : 'Practical, results-oriented approach'}
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* Quick Contact Info */}
-                <Card className="border-border mt-6">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-4">
-                      {isRTL ? 'أو تواصل معنا مباشرة' : 'Or Contact Us Directly'}
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <Phone className="w-4 h-4 text-muted-foreground" />
-                        <a href="tel:+96569668726" className="text-sm hover:text-primary transition-colors">
-                          +965 69668726
-                        </a>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-4 h-4 text-muted-foreground" />
-                        <a href="mailto:support@asasiso.com" className="text-sm hover:text-primary transition-colors">
-                          support@asasiso.com
-                        </a>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Clock className="w-4 h-4 text-muted-foreground mt-0.5" />
-                        <div className="text-sm text-muted-foreground">
-                          <p>{isRTL ? 'الأحد - الخميس: 9ص - 6م' : 'Sunday - Thursday: 9AM - 6PM'}</p>
-                          <p>{isRTL ? 'توقيت الكويت (GMT+3)' : 'Kuwait Time (GMT+3)'}</p>
-                        </div>
+              <Card className="border-border">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-semibold mb-6 text-center">
+                    {isRTL ? 'أو تواصل معنا مباشرة' : 'Or Contact Us Directly'}
+                  </h3>
+                  <div className="space-y-5">
+                    <div className="flex items-center gap-4 justify-center">
+                      <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                      <a href="tel:+96569668726" className="text-lg hover:text-primary transition-colors font-medium">
+                        +965 69668726
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-4 justify-center">
+                      <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                      <a href="mailto:support@asasiso.com" className="text-lg hover:text-primary transition-colors font-medium">
+                        support@asasiso.com
+                      </a>
+                    </div>
+                    <div className="flex items-start gap-4 justify-center">
+                      <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                      <div className="text-center">
+                        <p className="text-lg font-medium">{isRTL ? 'الأحد - الخميس: 9ص - 6م' : 'Sunday - Thursday: 9AM - 6PM'}</p>
+                        <p className="text-base text-muted-foreground">{isRTL ? 'توقيت الكويت (GMT+3)' : 'Kuwait Time (GMT+3)'}</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
