@@ -128,7 +128,7 @@ export default function Consultation() {
       </section>
 
       {/* Cal.com Booking Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-max">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -166,7 +166,7 @@ export default function Consultation() {
             </div>
 
             {/* Why Choose Us & Contact Info - Side by Side */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-4">
               <Card className="border-border">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-semibold mb-6 text-center">
@@ -235,7 +235,7 @@ export default function Consultation() {
       </section>
 
       {/* Consultation Benefits */}
-      <section className="py-12 bg-gradient-to-br from-secondary/5 to-primary/5">
+      <section className="py-8 bg-gradient-to-br from-secondary/5 to-primary/5">
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
