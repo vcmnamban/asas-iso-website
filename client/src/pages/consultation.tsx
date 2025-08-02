@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,6 +26,13 @@ import { insertConsultationRequestSchema } from '@shared/schema';
 import { COUNTRIES, ISO_STANDARDS } from '@/lib/constants';
 import { z } from 'zod';
 
+// TypeScript declarations for Cal.com
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
+
 const consultationFormSchema = insertConsultationRequestSchema.extend({
   fullName: z.string().min(2, 'Name must be at least 2 characters'),
   companyName: z.string().min(2, 'Company name must be at least 2 characters'),
@@ -39,6 +46,55 @@ export default function Consultation() {
   const { t, isRTL } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize Cal.com embed
+  useEffect(() => {
+    // Add Cal.com script if not already present
+    if (!document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://app.cal.com/embed/embed.js';
+      script.onload = () => {
+        // Initialize Cal.com after script loads
+        if (window.Cal) {
+          window.Cal("init", "30min", {origin:"https://app.cal.com"});
+          
+          window.Cal.ns["30min"]("inline", {
+            elementOrSelector:"#my-cal-inline-30min",
+            config: {"layout":"month_view"},
+            calLink: "asasiso/30min",
+          });
+
+          window.Cal.ns["30min"]("ui", {
+            "cssVarsPerTheme":{
+              "light":{"cal-brand":"#1c98ed"},
+              "dark":{"cal-brand":"#004aad"}
+            },
+            "hideEventTypeDetails":false,
+            "layout":"month_view"
+          });
+        }
+      };
+      document.head.appendChild(script);
+    } else if (window.Cal) {
+      // If script already exists, just initialize
+      window.Cal("init", "30min", {origin:"https://app.cal.com"});
+      
+      window.Cal.ns["30min"]("inline", {
+        elementOrSelector:"#my-cal-inline-30min",
+        config: {"layout":"month_view"},
+        calLink: "asasiso/30min",
+      });
+
+      window.Cal.ns["30min"]("ui", {
+        "cssVarsPerTheme":{
+          "light":{"cal-brand":"#1c98ed"},
+          "dark":{"cal-brand":"#004aad"}
+        },
+        "hideEventTypeDetails":false,
+        "layout":"month_view"
+      });
+    }
+  }, []);
 
   const {
     register,
@@ -513,23 +569,15 @@ export default function Consultation() {
                     </div>
                     
                     {/* Cal.com Embed */}
-                    <div className="cal-embed-container">
-                      <iframe
-                        src="https://cal.com/asasiso/consultation?embed=true"
-                        width="100%"
-                        height="500"
-                        frameBorder="0"
-                        title={isRTL ? 'حجز استشارة أساس أيزو' : 'Asas ISO Consultation Booking'}
-                        className="rounded-lg border-0"
-                        style={{ minHeight: '500px' }}
-                      />
+                    <div className="cal-embed-container" style={{ minHeight: '600px' }}>
+                      <div style={{width:'100%',height:'600px',overflow:'scroll'}} id="my-cal-inline-30min"></div>
                     </div>
                     
                     {/* Fallback Button */}
                     <div className="text-center mt-4">
                       <Button 
                         variant="outline"
-                        onClick={() => window.open('https://cal.com/asasiso/consultation', '_blank')}
+                        onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
                         className="w-full"
                       >
                         {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
