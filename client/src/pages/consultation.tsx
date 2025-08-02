@@ -47,52 +47,22 @@ export default function Consultation() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize Cal.com embed
+  // Initialize Cal.com embed with direct iframe approach
   useEffect(() => {
-    // Add Cal.com script if not already present
-    if (!document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://app.cal.com/embed/embed.js';
-      script.onload = () => {
-        // Initialize Cal.com after script loads
-        if (window.Cal) {
-          window.Cal("init", "30min", {origin:"https://app.cal.com"});
-          
-          window.Cal.ns["30min"]("inline", {
-            elementOrSelector:"#my-cal-inline-30min",
-            config: {"layout":"month_view"},
-            calLink: "asasiso/30min",
-          });
-
-          window.Cal.ns["30min"]("ui", {
-            "cssVarsPerTheme":{
-              "light":{"cal-brand":"#1c98ed"},
-              "dark":{"cal-brand":"#004aad"}
-            },
-            "hideEventTypeDetails":false,
-            "layout":"month_view"
-          });
-        }
-      };
-      document.head.appendChild(script);
-    } else if (window.Cal) {
-      // If script already exists, just initialize
-      window.Cal("init", "30min", {origin:"https://app.cal.com"});
+    const embedContainer = document.getElementById('my-cal-inline-30min');
+    if (embedContainer && !embedContainer.innerHTML) {
+      // Create iframe for more reliable embedding
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
+      iframe.width = '100%';
+      iframe.height = '600';
+      iframe.frameBorder = '0';
+      iframe.title = 'Asas ISO Consultation Booking';
+      iframe.style.border = 'none';
+      iframe.style.borderRadius = '8px';
+      iframe.allow = 'camera; microphone; geolocation';
       
-      window.Cal.ns["30min"]("inline", {
-        elementOrSelector:"#my-cal-inline-30min",
-        config: {"layout":"month_view"},
-        calLink: "asasiso/30min",
-      });
-
-      window.Cal.ns["30min"]("ui", {
-        "cssVarsPerTheme":{
-          "light":{"cal-brand":"#1c98ed"},
-          "dark":{"cal-brand":"#004aad"}
-        },
-        "hideEventTypeDetails":false,
-        "layout":"month_view"
-      });
+      embedContainer.appendChild(iframe);
     }
   }, []);
 
@@ -569,8 +539,8 @@ export default function Consultation() {
                     </div>
                     
                     {/* Cal.com Embed */}
-                    <div className="cal-embed-container" style={{ minHeight: '600px' }}>
-                      <div style={{width:'100%',height:'600px',overflow:'scroll'}} id="my-cal-inline-30min"></div>
+                    <div className="cal-embed-container" style={{ minHeight: '600px', borderRadius: '8px', overflow: 'hidden' }}>
+                      <div style={{width:'100%',height:'600px'}} id="my-cal-inline-30min"></div>
                     </div>
                     
                     {/* Fallback Button */}
