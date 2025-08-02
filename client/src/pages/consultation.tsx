@@ -237,7 +237,7 @@ export default function Consultation() {
       {/* Consultation Benefits */}
       <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {isRTL ? 'ما ستحصل عليه من الاستشارة' : 'What You\'ll Get from the Consultation'}
             </h2>
@@ -249,7 +249,7 @@ export default function Consultation() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {consultationBenefits.map((benefit, index) => (
               <Card key={index} className="border-border text-center">
                 <CardContent className="p-8">
@@ -266,9 +266,9 @@ export default function Consultation() {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
+      <section className="py-8 bg-gradient-to-br from-secondary/5 to-primary/5">
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {isRTL ? 'كيف تعمل العملية' : 'How the Process Works'}
             </h2>
