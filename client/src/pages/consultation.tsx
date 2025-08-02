@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
@@ -25,6 +25,25 @@ declare global {
 
 export default function Consultation() {
   const { t, isRTL } = useLanguage();
+
+  // Initialize Cal.com embed with direct iframe approach
+  useEffect(() => {
+    const embedContainer = document.getElementById('my-cal-inline-30min');
+    if (embedContainer && !embedContainer.innerHTML) {
+      // Create iframe for more reliable embedding
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
+      iframe.width = '100%';
+      iframe.height = '800';
+      iframe.frameBorder = '0';
+      iframe.title = 'Asas ISO Consultation Booking';
+      iframe.style.border = 'none';
+      iframe.style.borderRadius = '8px';
+      iframe.allow = 'camera; microphone; geolocation';
+      
+      embedContainer.appendChild(iframe);
+    }
+  }, []);
 
   const consultationBenefits = [
     {
@@ -122,54 +141,23 @@ export default function Consultation() {
               </p>
             </div>
 
-            {/* Cal.com Integration - Optimized Approach */}
+            {/* Cal.com Integration - Full Width */}
             <div className="mb-8">
               <Card className="border-border">
-                <CardContent className="p-8 text-center">
-                  <div className="max-w-lg mx-auto">
-                    <Calendar className="w-20 h-20 text-primary mx-auto mb-6" />
-                    <h3 className="text-3xl font-bold mb-4">
-                      {isRTL ? 'احجز استشارتك المجانية' : 'Book Your Free Consultation'}
-                    </h3>
-                    <p className="text-lg text-muted-foreground mb-6">
-                      {isRTL 
-                        ? 'استشارة مدتها 30 دقيقة مع خبير أساس أيزو لتقييم احتياجات مؤسستك'
-                        : '30-minute consultation with an Asas ISO expert to assess your organization\'s needs'
-                      }
-                    </p>
-                    
-                    {/* Key Benefits */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
-                      <div className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span className="text-sm">{isRTL ? 'مجاني تماماً' : 'Completely Free'}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span className="text-sm">{isRTL ? '30 دقيقة' : '30 Minutes'}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span className="text-sm">{isRTL ? 'عبر جوجل ميت' : 'Via Google Meet'}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span className="text-sm">{isRTL ? 'خبير معتمد' : 'Certified Expert'}</span>
-                      </div>
-                    </div>
-
+                <CardContent className="p-8">
+                  <div className="cal-embed-container" style={{ minHeight: '800px', borderRadius: '8px', overflow: 'visible' }}>
+                    <div style={{width:'100%',height:'800px'}} id="my-cal-inline-30min"></div>
+                  </div>
+                  
+                  {/* Fallback Button */}
+                  <div className="text-center mt-6">
                     <Button 
+                      variant="outline"
                       onClick={() => window.open('https://cal.com/asasiso/30min', '_blank')}
-                      className="btn-primary text-xl px-16 py-6 mb-4"
-                      size="lg"
+                      className="px-8 py-3"
                     >
-                      <Calendar className="mr-4 w-7 h-7" />
-                      {isRTL ? 'اختر وقت الاستشارة' : 'Choose Your Time'}
+                      {isRTL ? 'افتح في نافذة جديدة' : 'Open in New Window'}
                     </Button>
-                    
-                    <p className="text-sm text-muted-foreground">
-                      {isRTL ? 'سيفتح تقويم الحجز في نافذة جديدة' : 'Opens booking calendar in a new window'}
-                    </p>
                   </div>
                 </CardContent>
               </Card>
