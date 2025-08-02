@@ -128,7 +128,7 @@ export default function Consultation() {
       </section>
 
       {/* Cal.com Booking Section */}
-      <section className="pb-2 bg-white">
+      <section className="pt-12 pb-2 bg-white">
         <div className="container-max">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
