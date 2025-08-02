@@ -125,68 +125,6 @@ export default function Consultation() {
         </div>
       </section>
 
-      {/* Consultation Benefits */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {isRTL ? 'ما ستحصل عليه من الاستشارة' : 'What You\'ll Get from the Consultation'}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {isRTL 
-                ? 'استشارتنا المجانية مصممة لفهم احتياجاتك وتقديم التوجيه المهني'
-                : 'Our free consultation is designed to understand your needs and provide professional guidance'
-              }
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {consultationBenefits.map((benefit, index) => (
-              <Card key={index} className="border-border text-center">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <benefit.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Steps */}
-      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {isRTL ? 'كيف تعمل العملية' : 'How the Process Works'}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {isRTL 
-                ? 'عملية بسيطة من أربع خطوات للحصول على التدريب المناسب لمؤسستك'
-                : 'A simple four-step process to get the right training for your organization'
-              }
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <Card key={index} className="bg-white border-border text-center">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl font-bold text-white">{step.step}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Cal.com Booking Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
@@ -296,6 +234,69 @@ export default function Consultation() {
           </div>
         </div>
       </section>
+
+      {/* Consultation Benefits */}
+      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {isRTL ? 'ما ستحصل عليه من الاستشارة' : 'What You\'ll Get from the Consultation'}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {isRTL 
+                ? 'استشارتنا المجانية مصممة لفهم احتياجاتك وتقديم التوجيه المهني'
+                : 'Our free consultation is designed to understand your needs and provide professional guidance'
+              }
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {consultationBenefits.map((benefit, index) => (
+              <Card key={index} className="border-border text-center">
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <benefit.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{benefit.title}</h3>
+                  <p className="text-muted-foreground">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Steps */}
+      <section className="section-padding bg-gradient-to-br from-secondary/5 to-primary/5">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {isRTL ? 'كيف تعمل العملية' : 'How the Process Works'}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {isRTL 
+                ? 'عملية بسيطة من أربع خطوات للحصول على التدريب المناسب لمؤسستك'
+                : 'A simple four-step process to get the right training for your organization'
+              }
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <Card key={index} className="bg-white border-border text-center">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl font-bold text-white">{step.step}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }
