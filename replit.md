@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- August 02, 2025. Optimized Cal.com calendar interface by eliminating blank spaces and double scrollbars through precise iframe height cropping (400px iframe in 310px container)
 - August 02, 2025. Integrated Cal.com scheduling system for real-time consultation booking with embedded widget
 - August 01, 2025. Replaced Calendly integration with Google Calendar direct booking system on consultation page
 - August 01, 2025. Updated company email address to support@asasiso.com across all pages and contact forms
