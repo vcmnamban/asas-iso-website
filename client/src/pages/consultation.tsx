@@ -168,11 +168,11 @@ export default function Consultation() {
             {/* Why Choose Us & Contact Info - Side by Side */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-4">
               <Card className="border-border">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-6 text-center">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 text-center">
                     {isRTL ? 'لماذا تختار أساس أيزو؟' : 'Why Choose Asas ISO?'}
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-start gap-4">
                       <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                       <span className="text-base">
@@ -202,11 +202,11 @@ export default function Consultation() {
               </Card>
 
               <Card className="border-border">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-6 text-center">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 text-center">
                     {isRTL ? 'أو تواصل معنا مباشرة' : 'Or Contact Us Directly'}
                   </h3>
-                  <div className="space-y-5">
+                  <div className="space-y-4">
                     <div className="flex items-center gap-4 justify-center">
                       <Phone className="w-6 h-6 text-primary flex-shrink-0" />
                       <a href="tel:+96569668726" className="text-lg hover:text-primary transition-colors font-medium">
