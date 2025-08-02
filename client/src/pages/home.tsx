@@ -93,10 +93,12 @@ export default function Home() {
                   {t('requestQuote')}
                 </Button>
               </Link>
-              <Button onClick={() => scrollToSection('consultation')} variant="secondary" className="btn-secondary">
-                <Calendar className="mr-2 w-5 h-5" />
-                {t('scheduleConsultation')}
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" className="btn-secondary">
+                  <Calendar className="mr-2 w-5 h-5" />
+                  {t('scheduleConsultation')}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
