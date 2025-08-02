@@ -34,7 +34,7 @@ export default function Consultation() {
       const iframe = document.createElement('iframe');
       iframe.src = 'https://cal.com/asasiso/30min?embed=true&theme=light';
       iframe.width = '100%';
-      iframe.height = '800';
+      iframe.height = '650';
       iframe.frameBorder = '0';
       iframe.title = 'Asas ISO Consultation Booking';
       iframe.style.border = 'none';
@@ -42,6 +42,41 @@ export default function Consultation() {
       iframe.allow = 'camera; microphone; geolocation';
       
       embedContainer.appendChild(iframe);
+
+      // Try to inject custom styles into the iframe when it loads
+      iframe.onload = () => {
+        try {
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+          if (iframeDoc) {
+            const style = iframeDoc.createElement('style');
+            style.textContent = `
+              [data-testid="time-slots"],
+              .available-times,
+              .time-slots-container {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+                gap: 8px !important;
+                max-height: 300px !important;
+                overflow-y: auto !important;
+              }
+              
+              [data-testid="time-slot"],
+              .time-slot,
+              button[aria-label*="time"] {
+                width: auto !important;
+                min-height: 36px !important;
+                margin: 0 !important;
+                font-size: 13px !important;
+                padding: 6px 10px !important;
+              }
+            `;
+            iframeDoc.head.appendChild(style);
+          }
+        } catch (e) {
+          // Cross-origin restrictions prevent style injection
+          console.log('Unable to inject styles into Cal.com iframe due to CORS');
+        }
+      };
     }
   }, []);
 
@@ -145,8 +180,8 @@ export default function Consultation() {
             <div className="mb-8">
               <Card className="border-border">
                 <CardContent className="p-8">
-                  <div className="cal-embed-container" style={{ minHeight: '800px', borderRadius: '8px', overflow: 'visible' }}>
-                    <div style={{width:'100%',height:'800px'}} id="my-cal-inline-30min"></div>
+                  <div className="cal-embed-container cal-custom-layout" style={{ minHeight: '650px', borderRadius: '8px', overflow: 'visible' }}>
+                    <div style={{width:'100%',height:'650px'}} id="my-cal-inline-30min"></div>
                   </div>
                   
                   {/* Fallback Button */}
