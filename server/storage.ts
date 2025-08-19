@@ -18,6 +18,9 @@ import {
   type AdminUser,
   type InsertAdminUser
 } from "@shared/schema";
+import { drizzle } from 'drizzle-orm/neon-serverless';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { eq } from 'drizzle-orm';
 
 export interface IStorage {
   // Contact submissions
@@ -305,4 +308,94 @@ For organizations in the GCC region, implementing ISO 9001:2015 provides competi
   }
 }
 
-export const storage = new MemStorage();
+// Database Storage Implementation
+export class DbStorage implements IStorage {
+  private db: ReturnType<typeof drizzle>;
+
+  constructor() {
+    neonConfig.fetchConnectionCache = true;
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    this.db = drizzle(pool);
+  }
+
+  // Contact submissions
+  async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
+    const [result] = await this.db.insert(contactSubmissions).values(submission).returning();
+    return result;
+  }
+
+  async getContactSubmissions(): Promise<ContactSubmission[]> {
+    return await this.db.select().from(contactSubmissions);
+  }
+
+  // Consultation requests
+  async createConsultationRequest(request: InsertConsultationRequest): Promise<ConsultationRequest> {
+    const [result] = await this.db.insert(consultationRequests).values(request).returning();
+    return result;
+  }
+
+  async getConsultationRequests(): Promise<ConsultationRequest[]> {
+    return await this.db.select().from(consultationRequests);
+  }
+
+  // Quote requests
+  async createQuoteRequest(request: InsertQuoteRequest): Promise<QuoteRequest> {
+    const [result] = await this.db.insert(quoteRequests).values(request).returning();
+    return result;
+  }
+
+  async getQuoteRequests(): Promise<QuoteRequest[]> {
+    return await this.db.select().from(quoteRequests);
+  }
+
+  // Chat messages
+  async createChatMessage(message: InsertChatMessage): Promise<ChatMessage> {
+    const [result] = await this.db.insert(chatMessages).values(message).returning();
+    return result;
+  }
+
+  async getChatMessages(sessionId: string): Promise<ChatMessage[]> {
+    return await this.db.select().from(chatMessages).where(eq(chatMessages.sessionId, sessionId));
+  }
+
+  // Blog posts
+  async createBlogPost(post: InsertBlogPost): Promise<BlogPost> {
+    const [result] = await this.db.insert(blogPosts).values(post).returning();
+    return result;
+  }
+
+  async getBlogPosts(publishedOnly?: boolean): Promise<BlogPost[]> {
+    if (publishedOnly) {
+      return await this.db.select().from(blogPosts).where(eq(blogPosts.published, true));
+    }
+    return await this.db.select().from(blogPosts);
+  }
+
+  async getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+    const posts = await this.db.select().from(blogPosts).where(eq(blogPosts.slug, slug));
+    return posts[0] || null;
+  }
+
+  async updateBlogPost(id: number, updateData: InsertBlogPost): Promise<BlogPost | null> {
+    const [result] = await this.db.update(blogPosts).set(updateData).where(eq(blogPosts.id, id)).returning();
+    return result || null;
+  }
+
+  async deleteBlogPost(id: number): Promise<boolean> {
+    const result = await this.db.delete(blogPosts).where(eq(blogPosts.id, id));
+    return result.rowCount > 0;
+  }
+
+  // Admin users
+  async createAdminUser(user: InsertAdminUser): Promise<AdminUser> {
+    const [result] = await this.db.insert(adminUsers).values(user).returning();
+    return result;
+  }
+
+  async getAdminUserByEmail(email: string): Promise<AdminUser | null> {
+    const users = await this.db.select().from(adminUsers).where(eq(adminUsers.email, email));
+    return users[0] || null;
+  }
+}
+
+export const storage = new DbStorage();
