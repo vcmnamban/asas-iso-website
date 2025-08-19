@@ -15,6 +15,7 @@ import ISOCourses from "@/pages/iso-courses";
 import ISODetail from "@/pages/iso-detail";
 import TrainingServices from "@/pages/training-services";
 import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
 import Contact from "@/pages/contact";
 import Consultation from "@/pages/consultation";
 import Quote from "@/pages/quote";
@@ -31,7 +32,7 @@ function Router() {
           <Route path="/iso-courses/:id" component={ISODetail} />
           <Route path="/training-services" component={TrainingServices} />
           <Route path="/blog" component={Blog} />
-          <Route path="/blog/:id" component={Blog} />
+          <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/contact" component={Contact} />
           <Route path="/consultation" component={Consultation} />
           <Route path="/quote" component={Quote} />

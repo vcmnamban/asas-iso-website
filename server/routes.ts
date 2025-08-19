@@ -5,7 +5,9 @@ import {
   insertContactSubmissionSchema, 
   insertConsultationRequestSchema, 
   insertChatMessageSchema,
-  insertQuoteRequestSchema
+  insertQuoteRequestSchema,
+  insertBlogPostSchema,
+  insertAdminUserSchema
 } from "@shared/schema";
 import { z } from "zod";
 
@@ -106,6 +108,93 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(messages);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch chat history" });
+    }
+  });
+
+  // Blog Posts API
+  // Get all published blog posts
+  app.get("/api/blog", async (req, res) => {
+    try {
+      const posts = await storage.getBlogPosts(true); // published only
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch blog posts" });
+    }
+  });
+
+  // Get single blog post by slug
+  app.get("/api/blog/:slug", async (req, res) => {
+    try {
+      const slug = req.params.slug;
+      const post = await storage.getBlogPostBySlug(slug);
+      if (!post) {
+        res.status(404).json({ error: "Blog post not found" });
+        return;
+      }
+      res.json(post);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch blog post" });
+    }
+  });
+
+  // Admin Blog Management API
+  // Get all blog posts (including drafts) - Admin only
+  app.get("/api/admin/blog", async (req, res) => {
+    try {
+      const posts = await storage.getBlogPosts(); // all posts
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch blog posts" });
+    }
+  });
+
+  // Create new blog post - Admin only
+  app.post("/api/admin/blog", async (req, res) => {
+    try {
+      const validatedData = insertBlogPostSchema.parse(req.body);
+      const post = await storage.createBlogPost(validatedData);
+      res.json({ success: true, id: post.id });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ error: "Invalid blog post data", details: error.errors });
+      } else {
+        res.status(500).json({ error: "Failed to create blog post" });
+      }
+    }
+  });
+
+  // Update blog post - Admin only
+  app.put("/api/admin/blog/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const validatedData = insertBlogPostSchema.parse(req.body);
+      const post = await storage.updateBlogPost(id, validatedData);
+      if (!post) {
+        res.status(404).json({ error: "Blog post not found" });
+        return;
+      }
+      res.json({ success: true, post });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ error: "Invalid blog post data", details: error.errors });
+      } else {
+        res.status(500).json({ error: "Failed to update blog post" });
+      }
+    }
+  });
+
+  // Delete blog post - Admin only
+  app.delete("/api/admin/blog/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteBlogPost(id);
+      if (!success) {
+        res.status(404).json({ error: "Blog post not found" });
+        return;
+      }
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to delete blog post" });
     }
   });
 
