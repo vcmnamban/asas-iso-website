@@ -301,7 +301,7 @@ For organizations in the GCC region, implementing ISO 9001:2015 provides competi
         metaTitleAr: "دليل تطبيق أيزو 9001:2015 - تدريب أساس أيزو",
         metaDescription: "Learn how to implement ISO 9001:2015 quality management systems with our comprehensive guide for GCC organizations.",
         metaDescriptionAr: "تعلم كيفية تطبيق أنظمة إدارة الجودة أيزو 9001:2015 مع دليلنا الشامل للمؤسسات في دول مجلس التعاون الخليجي.",
-        featuredImage: ""
+        featuredImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       },
       {
         title: "Environmental Management Excellence: ISO 14001:2015 Implementation Guide",
