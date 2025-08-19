@@ -95,6 +95,7 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- August 19, 2025. Successfully implemented comprehensive blog system with 6 detailed ISO standards posts, each including bilingual content, GCC regional context, and professional featured images. Fixed storage persistence issues to ensure all posts display correctly across homepage and blog pages.
 - August 02, 2025. Optimized Cal.com calendar interface by eliminating blank spaces and double scrollbars through precise iframe height cropping (400px iframe in 310px container)
 - August 02, 2025. Integrated Cal.com scheduling system for real-time consultation booking with embedded widget
 - August 01, 2025. Replaced Calendly integration with Google Calendar direct booking system on consultation page

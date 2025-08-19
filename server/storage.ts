@@ -179,6 +179,7 @@ export class MemStorage implements IStorage {
       ...insertPost,
       tags: insertPost.tags || null,
       tagsAr: insertPost.tagsAr || null,
+      featuredImage: insertPost.featuredImage || null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
