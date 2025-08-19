@@ -177,6 +177,8 @@ export class MemStorage implements IStorage {
     const post: BlogPost = {
       id,
       ...insertPost,
+      tags: insertPost.tags || null,
+      tagsAr: insertPost.tagsAr || null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -219,6 +221,8 @@ export class MemStorage implements IStorage {
     const user: AdminUser = {
       id,
       ...insertUser,
+      role: insertUser.role || null,
+      role: insertUser.role || null,
       createdAt: new Date(),
     };
     this.adminUsers.set(id, user);
@@ -360,7 +364,12 @@ export class DbStorage implements IStorage {
 
   // Blog posts
   async createBlogPost(post: InsertBlogPost): Promise<BlogPost> {
-    const [result] = await this.db.insert(blogPosts).values(post).returning();
+    const insertData = {
+      ...post,
+      tags: post.tags || null,
+      tagsAr: post.tagsAr || null
+    };
+    const [result] = await this.db.insert(blogPosts).values(insertData).returning();
     return result;
   }
 
@@ -383,12 +392,16 @@ export class DbStorage implements IStorage {
 
   async deleteBlogPost(id: number): Promise<boolean> {
     const result = await this.db.delete(blogPosts).where(eq(blogPosts.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount || 0) > 0;
   }
 
   // Admin users
   async createAdminUser(user: InsertAdminUser): Promise<AdminUser> {
-    const [result] = await this.db.insert(adminUsers).values(user).returning();
+    const insertData = {
+      ...user,
+      role: user.role || null
+    };
+    const [result] = await this.db.insert(adminUsers).values(insertData).returning();
     return result;
   }
 
@@ -398,4 +411,4 @@ export class DbStorage implements IStorage {
   }
 }
 
-export const storage = new DbStorage();
+export const storage = new MemStorage();
