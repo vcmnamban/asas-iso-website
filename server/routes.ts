@@ -115,7 +115,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all published blog posts
   app.get("/api/blog", async (req, res) => {
     try {
-      const posts = await storage.getBlogPosts(true); // published only
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : undefined;
+      const publishedOnly = req.query.published !== 'false'; // default to true
+      
+      let posts = await storage.getBlogPosts(publishedOnly);
+      
+      if (limit && limit > 0) {
+        posts = posts.slice(0, limit);
+      }
+      
       res.json(posts);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch blog posts" });

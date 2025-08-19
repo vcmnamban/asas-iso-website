@@ -23,10 +23,21 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { SEOHead } from '@/components/common/seo-head';
-import { ISO_STANDARDS, BLOG_POSTS } from '@/lib/constants';
+import { ISO_STANDARDS } from '@/lib/constants';
+import { useQuery } from '@tanstack/react-query';
+import type { BlogPost } from '@shared/schema';
 
 export default function Home() {
-  const { t, isRTL } = useLanguage();
+  const { t, isRTL, language } = useLanguage();
+
+  // Fetch latest blog posts
+  const { data: blogPosts = [], isLoading: blogLoading } = useQuery({
+    queryKey: ['/api/blog'],
+    queryFn: async (): Promise<BlogPost[]> => {
+      const response = await fetch('/api/blog?limit=3&published=true');
+      return response.json();
+    }
+  });
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -338,32 +349,86 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((post) => (
-              <Card key={post.id} className="card-hover bg-white border-border overflow-hidden">
-                <div 
-                  className="h-48 bg-cover bg-center" 
-                  style={{ backgroundImage: `url(${post.image})` }}
-                ></div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="secondary">{post.category}</Badge>
-                    <span className="text-sm text-muted-foreground">{post.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 line-clamp-2">{post.title}</h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">{post.date}</span>
-                    <Link href={`/blog/${post.id}`}>
-                      <Button variant="ghost" size="sm">
-                        {t('readMore')} →
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {blogLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <Card key={i} className="overflow-hidden animate-pulse">
+                  <div className="h-48 bg-muted"></div>
+                  <CardContent className="p-6">
+                    <div className="h-6 bg-muted rounded mb-3"></div>
+                    <div className="h-4 bg-muted rounded mb-2"></div>
+                    <div className="h-4 bg-muted rounded mb-4"></div>
+                    <div className="flex justify-between">
+                      <div className="h-4 bg-muted rounded w-20"></div>
+                      <div className="h-8 bg-muted rounded w-24"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : blogPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.slice(0, 3).map((post) => {
+                const title = language === 'ar' ? post.titleAr : post.title;
+                const excerpt = language === 'ar' ? post.excerptAr : post.excerpt;
+                const category = language === 'ar' ? post.categoryAr : post.category;
+                const author = language === 'ar' ? post.authorAr : post.author;
+                
+                // Calculate reading time
+                const content = language === 'ar' ? post.contentAr : post.content;
+                const readingTime = Math.ceil(content.split(' ').length / 200);
+
+                return (
+                  <Card key={post.id} className="card-hover bg-white border-border overflow-hidden">
+                    {post.featuredImage ? (
+                      <div 
+                        className="h-48 bg-cover bg-center" 
+                        style={{ backgroundImage: `url(${post.featuredImage})` }}
+                      ></div>
+                    ) : (
+                      <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <GraduationCap className="w-6 h-6 text-primary" />
+                          </div>
+                          <p className="text-sm text-muted-foreground">{category}</p>
+                        </div>
+                      </div>
+                    )}
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Badge variant="secondary">{category}</Badge>
+                        <span className="text-sm text-muted-foreground">
+                          {readingTime} {isRTL ? 'دقائق قراءة' : 'min read'}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3 line-clamp-2">{title}</h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-3">{excerpt}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">
+                          {new Date(post.createdAt).toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US')}
+                        </span>
+                        <Link href={`/blog/${post.slug}`}>
+                          <Button variant="ghost" size="sm">
+                            {t('readMore')} →
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                <GraduationCap className="w-8 h-8 text-muted-foreground" />
+              </div>
+              <p className="text-muted-foreground">
+                {isRTL ? 'لا توجد مقالات متاحة حالياً' : 'No blog posts available yet'}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
