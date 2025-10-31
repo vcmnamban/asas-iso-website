@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,6 +21,7 @@ export function Chatbot() {
   const [input, setInput] = useState('');
   const [sessionId] = useState(() => Math.random().toString(36).substr(2, 9));
   const { t, isRTL } = useLanguage();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const chatMutation = useMutation({
     mutationFn: async (message: string) => {
@@ -41,6 +42,11 @@ export function Chatbot() {
       }]);
     }
   });
+
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, chatMutation.isPending]);
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
@@ -129,6 +135,7 @@ export function Chatbot() {
                     </div>
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
             <div className="border-t p-4">
