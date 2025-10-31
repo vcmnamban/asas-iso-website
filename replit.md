@@ -87,6 +87,8 @@ This is a full-stack bilingual (English/Arabic) website for Asas ISO, a professi
 ### Environment Variables
 - `DATABASE_URL`: PostgreSQL connection string (required)
 - `NODE_ENV`: Environment mode (development/production)
+- `PORT`: Server port (defaults to 5000, auto-configured in production)
+- `N8N_WEBHOOK_URL`: n8n AI chatbot webhook endpoint for intelligent chat responses
 
 ## User Preferences
 
@@ -95,6 +97,8 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
+- October 31, 2025. Integrated n8n AI chatbot to replace keyword-based responses - chatbot now calls external n8n webhook for intelligent, context-aware responses while maintaining existing bilingual UI and chat history features
+- October 31, 2025. Fixed production deployment configuration: added PORT environment variable support, comprehensive error handling for server startup, NODE_ENV validation, and improved production-ready logging
 - August 19, 2025. Successfully implemented comprehensive blog system with 6 detailed ISO standards posts, each including bilingual content, GCC regional context, and professional featured images. Fixed storage persistence issues to ensure all posts display correctly across homepage and blog pages.
 - August 02, 2025. Optimized Cal.com calendar interface by eliminating blank spaces and double scrollbars through precise iframe height cropping (400px iframe in 310px container)
 - August 02, 2025. Integrated Cal.com scheduling system for real-time consultation booking with embedded widget
