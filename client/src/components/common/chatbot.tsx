@@ -86,13 +86,14 @@ export function Chatbot() {
             <CardTitle className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4" />
-                <span>{isRTL ? 'مساعد أساس أيزو' : 'Asas ISO Assistant'}</span>
+                <span data-testid="chatbot-title">{isRTL ? 'مساعد أساس أيزو' : 'Asas ISO Assistant'}</span>
               </div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
                 className="w-6 h-6 p-0"
+                data-testid="button-close-chat"
               >
                 <X className="w-4 h-4" />
               </Button>
@@ -138,11 +139,13 @@ export function Chatbot() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   className="flex-1"
+                  data-testid="input-chat-message"
                 />
                 <Button
                   size="sm"
                   onClick={handleSendMessage}
                   disabled={!input.trim() || chatMutation.isPending}
+                  data-testid="button-send-chat"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
@@ -156,6 +159,7 @@ export function Chatbot() {
         onClick={() => setIsOpen(!isOpen)}
         size="lg"
         className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        data-testid="button-open-chat"
       >
         <MessageCircle className="w-6 h-6" />
       </Button>

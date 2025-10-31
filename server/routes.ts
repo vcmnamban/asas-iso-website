@@ -62,27 +62,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertChatMessageSchema.parse(req.body);
       
-      // Generate AI response based on user message
-      const userMessage = validatedData.userMessage.toLowerCase();
-      let botResponse = "Thank you for your question. I can help you with information about our ISO training courses. ";
+      let botResponse = "I'm sorry, I'm having trouble connecting right now. Please try again later.";
       
-      if (userMessage.includes("iso 9001") || userMessage.includes("quality")) {
-        botResponse += "ISO 9001:2015 is our Quality Management Systems course. We offer Awareness Training, Implementation Workshop, and Internal Auditor Training. ";
-      } else if (userMessage.includes("iso 14001") || userMessage.includes("environmental")) {
-        botResponse += "ISO 14001:2015 is our Environmental Management Systems course. We offer three levels of training. ";
-      } else if (userMessage.includes("iso 45001") || userMessage.includes("safety") || userMessage.includes("health")) {
-        botResponse += "ISO 45001:2018 is our Occupational Health & Safety Management course. Very popular in the GCC region. ";
-      } else if (userMessage.includes("iso 27001") || userMessage.includes("security") || userMessage.includes("information")) {
-        botResponse += "ISO 27001:2022 is our Information Security Management course. Essential for tech companies. ";
-      } else if (userMessage.includes("schedule") || userMessage.includes("training") || userMessage.includes("course")) {
-        botResponse += "We offer In-house training and Online live sessions. ";
-      } else if (userMessage.includes("price") || userMessage.includes("cost") || userMessage.includes("quote")) {
-        botResponse += "For pricing information, please use our contact form or schedule a free consultation. ";
-      } else if (userMessage.includes("location") || userMessage.includes("kuwait") || userMessage.includes("saudi") || userMessage.includes("oman")) {
-        botResponse += "We're based in Kuwait and serve the entire GCC region including Saudi Arabia and Oman. ";
+      // Call n8n webhook for AI response
+      const webhookUrl = process.env.N8N_WEBHOOK_URL;
+      
+      if (webhookUrl) {
+        try {
+          const n8nResponse = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              action: 'sendMessage',
+              sessionId: validatedData.sessionId,
+              chatInput: validatedData.userMessage
+            })
+          });
+
+          if (n8nResponse.ok) {
+            const n8nData = await n8nResponse.json();
+            // n8n chat typically returns the response in the 'output' field
+            botResponse = n8nData.output || n8nData.response || n8nData.message || botResponse;
+          } else {
+            console.error('n8n webhook error:', n8nResponse.status, n8nResponse.statusText);
+          }
+        } catch (fetchError) {
+          console.error('Error calling n8n webhook:', fetchError);
+          // Fallback to default message if webhook fails
+        }
+      } else {
+        console.warn('N8N_WEBHOOK_URL not configured');
       }
-      
-      botResponse += "Would you like me to connect you with our training specialist? Please provide your name and email.";
       
       const messageWithResponse = {
         ...validatedData,
